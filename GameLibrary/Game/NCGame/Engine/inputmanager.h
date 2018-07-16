@@ -5,7 +5,7 @@
 #include <map>
 #include "vector2D.h"
 
-class Inputmanager : public Singleton<Inputmanager>
+class ENGINE_API Inputmanager : public Singleton<Inputmanager>
 {
 public:
 	enum ebuttonState

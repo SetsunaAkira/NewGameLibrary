@@ -4,7 +4,7 @@
 #include "text.h"
 #include <vector>
 
-class Textmanager : public Singleton<Textmanager>
+class ENGINE_API Textmanager : public Singleton<Textmanager>
 {
 public:
 	Textmanager(){}

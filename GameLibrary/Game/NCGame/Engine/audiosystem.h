@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-class Audiosystem : public Singleton<Audiosystem>
+class ENGINE_API Audiosystem : public Singleton<Audiosystem>
 {
 public:
 	Audiosystem(){}

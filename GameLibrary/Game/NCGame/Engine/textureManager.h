@@ -2,7 +2,7 @@
 #include "engine.h"
 #include "singleton.h"
 #include <map>
-class TextureManager : public Singleton<TextureManager>
+class ENGINE_API TextureManager : public Singleton<TextureManager>
 {
 public:
 	
