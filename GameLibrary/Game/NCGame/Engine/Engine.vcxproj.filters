@@ -19,6 +19,12 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{56342187-a406-4749-9ada-04e49a695d04}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{9f57bc52-dcc5-4d50-bdee-5dd58a62b23e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{c2a060e4-74c9-447e-a78d-141af0d9d2f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h">
@@ -66,6 +72,18 @@
     <ClInclude Include="_math.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="id.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="components.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp">
@@ -109,6 +127,18 @@
     </ClCompile>
     <ClCompile Include="_math.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="id.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="object.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

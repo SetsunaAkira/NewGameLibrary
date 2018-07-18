@@ -145,8 +145,12 @@
   <ItemGroup>
     <ClInclude Include="audiosystem.h" />
     <ClInclude Include="color.h" />
+    <ClInclude Include="components.h" />
     <ClInclude Include="engine.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="id.h" />
     <ClInclude Include="inputmanager.h" />
+    <ClInclude Include="object.h" />
     <ClInclude Include="_math.h" />
     <ClInclude Include="matrix22.h" />
     <ClInclude Include="matrix33.h" />
@@ -162,8 +166,12 @@
   <ItemGroup>
     <ClCompile Include="audiosystem.cpp" />
     <ClCompile Include="color.cpp" />
+    <ClCompile Include="component.cpp" />
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="id.cpp" />
     <ClCompile Include="inputmanager.cpp" />
+    <ClCompile Include="object.cpp" />
     <ClCompile Include="_math.cpp" />
     <ClCompile Include="matrix22.cpp" />
     <ClCompile Include="matrix33.cpp" />

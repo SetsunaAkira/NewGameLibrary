@@ -19,8 +19,8 @@ protected:
 	void Create();
 
 protected:
-	SDL_Texture * m_texture = nullptr;
-	TTF_Font * m_font = nullptr;
+	SDL_Texture * m_texture;
+	TTF_Font * m_font;
 	std::string m_text;
 	Color m_color;
 };
