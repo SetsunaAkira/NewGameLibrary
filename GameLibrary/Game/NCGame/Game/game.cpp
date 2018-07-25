@@ -11,6 +11,10 @@
 #include "text.h"
 #include "textmanager.h"
 #include "audiosystem.h"
+#include "entity.h"
+#include "transformComponent.h"
+#include "spriteComponent.h"
+#include "scene.h"
 
 Vector2D position(0.0f, 0.0f);
 float angle = 0.0f;
@@ -19,9 +23,25 @@ Text* text;
 
 bool Game::Initialize()
 {
-	Inputmanager::Instance()->AddAction("space", SDL_SCANCODE_SPACE, Inputmanager::eDevice::KEYBOARD);
-	Audiosystem::Instance()->AddSound("metalhit", "..\\content\\Oof.mp3");
+	m_scene = new Scene();
 	text = Textmanager::Instance()->CreateText("STROBE LIGHTS CAUSE AIDS", "..\\content\\Raleway-Black.ttf", 24, Color::red);
+
+	for (size_t i = 0; i < 20; i++)
+	{
+		Entity* entity = new Entity(ID("player"));
+		TransformComponent* transformComponent = new TransformComponent(entity);
+		float x = (float)(rand() % 800);
+		float y = (float)(rand() % 600);
+		transformComponent->Create(Vector2D(x,y));
+		entity->addComponent(transformComponent);
+
+		SpriteComponent* spriteComponent = new SpriteComponent(entity);
+		spriteComponent->Create("..\\content\\car.bmp");
+		entity->addComponent(spriteComponent);
+
+		m_scene->addEntity(entity);
+		
+	}
 
 	bool success = m_engine->Initialize();
 	m_running = success;
@@ -66,11 +86,9 @@ void Game::Update()
 	SDL_GetMouseState(&x, &y);
 
 
-	if (Inputmanager::Instance()->GetActionButton("space") == Inputmanager::ebuttonState::PRESSED)
-	{
-		std::cout << "YEET" << std::endl;
-		Audiosystem::Instance()->PlaySound("metalhit", false);
-	}
+	
+
+	m_scene->Update();
 
 	const Uint8* keystate = SDL_GetKeyboardState(nullptr);
 
@@ -90,15 +108,18 @@ void Game::Update()
 
 	Renderer::Instance()->SetColor(Color::black);
 
+	m_scene->Draw();
 
+	Renderer::Instance()->EndFrame();
 
 	////DRAW
 	//	SDL_Texture* Captain = TextureManager::Instance()->GetTexture("..\\Content\\Falcon.bmp");
+	//entity->Draw();
 	std::vector<Color> colors = { Color::red, Color::green, Color::white };
 	text->SetColor(colors[rand() % colors.size()]);
 	text->Draw(Vector2D(10.0f, 10.0f), 0.0f);
 	Renderer::Instance()->DrawTexure(texture, position, angle);
-	Renderer::Instance()->EndFrame();
+	
 	m_running = !m_engine->IsQuit();
 	m_engine->Update();
 }

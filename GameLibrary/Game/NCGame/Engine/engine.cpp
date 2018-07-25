@@ -12,6 +12,7 @@
 #include "text.h"
 #include "textmanager.h"
 #include "audiosystem.h"
+#include "physics.h"
 
 
 
@@ -26,6 +27,7 @@ bool Engine::Initialize()
 	Audiosystem::Instance()->Initalize(this);
 	Inputmanager::Instance()->Initalize(this);
 	Textmanager::Instance()->Initialize(this);
+	Physics::Instance()->Initialize(this);
 
 	Inputmanager::Instance()->AddAction("space", SDL_SCANCODE_SPACE, Inputmanager::eDevice::KEYBOARD);
 	Audiosystem::Instance()->AddSound("metalhit", "..\\content\\Oof.mp3");
@@ -39,7 +41,12 @@ bool Engine::Initialize()
 
 void Engine::Update()
 {
-	
+	Timer::Instance()->Update();
+	Timer::Instance()->Update();
+	Inputmanager::Instance()->Update();
+	Audiosystem::Instance()->Update();
+	Physics::Instance()->Update();
+
 
 
 	///*SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
@@ -61,5 +68,11 @@ void Engine::Update()
 
 void Engine::Shutdown()
 {
-	
+	Timer::Instance()->Shutdown();
+	Renderer::Instance()->Shutdown();
+	TextureManager::Instance()->Shutdown();
+	Audiosystem::Instance()->Shutdown();
+	Inputmanager::Instance()->Shutdown();
+	Textmanager::Instance()->Shutdown();
+	Physics::Instance()->Shutdown();
 }

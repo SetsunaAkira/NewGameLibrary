@@ -63,7 +63,7 @@ void Inputmanager::Update()
 		for (int i = 0; i < SDL_CONTROLLER_AXIS_MAX; i++)
 		{
 			Sint16 value = SDL_GameControllerGetAxis(controllerInfo.controller,(SDL_GameControllerAxis) i);
-			controllerInfo.axis[i] = value / SDL_MAX_SINT16;
+			controllerInfo.axis[i] = static_cast<float>(value / SDL_MAX_SINT16);
 		}
 	}
 /*
@@ -111,7 +111,7 @@ float Inputmanager::getActionAbsolute(const std::string & action)
 	if (iter != m_actions.end())
 	{
 		InputInfo inputinfo = iter->second;
-		axis = GetButtonState(inputinfo.id, inputinfo.device, inputinfo.index);
+		axis = GetAxisAbsolute(inputinfo.id, inputinfo.device, inputinfo.index);
 	}
 
 	return axis;
@@ -124,7 +124,7 @@ float Inputmanager::getActionRelative(const std::string & action)
 	if (iter != m_actions.end())
 	{
 		InputInfo inputinfo = iter->second;
-		axis = GetButtonState(inputinfo.id, inputinfo.device, inputinfo.index);
+		axis = GetAxisRelative(inputinfo.id, inputinfo.device, inputinfo.index);
 	}
 	return axis;
 }

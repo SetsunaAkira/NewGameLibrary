@@ -73,8 +73,8 @@ private:
 	Uint8 *m_prevKeyState;
 	Uint8 *m_KeyState;
 
-	Uint8 m_mousebuttonState;
-	Uint8 m_prevmousebuttonState;
+	Uint32 m_mousebuttonState;
+	Uint32 m_prevmousebuttonState;
 	Vector2D m_mousePosition;
 	Vector2D m_prevmousePosition;
 

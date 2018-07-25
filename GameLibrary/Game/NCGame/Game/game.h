@@ -3,6 +3,7 @@
 #include "SDL.h"
 
 class Engine;
+class Scene;
 
 class Game
 {
@@ -20,5 +21,6 @@ protected:
 	Engine* m_engine;
 	bool m_isQuit = false;
 	SDL_Window * m_window = nullptr;
+	Scene* m_scene = nullptr;
 };
 

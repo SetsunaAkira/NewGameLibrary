@@ -37,6 +37,11 @@ void Renderer::DrawTexture(SDL_Texture * texture, const Vector2D & position, con
 	SDL_RenderCopyEx(m_renderer, texture, nullptr, &dest, angle, nullptr, SDL_FLIP_NONE);
 }
 
+void Renderer::DrawTexture(Texture * texture, const Vector2D & position, const Vector2D & scale, float angle)
+{
+	DrawTexture(texture->m_sdlTexture, position, scale, angle);
+}
+
 void Renderer::DrawTexure(SDL_Texture * texture, const Vector2D & position, float angle)
 {
 	SDL_Point point = position;

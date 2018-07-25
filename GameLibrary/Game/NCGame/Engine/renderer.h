@@ -3,6 +3,7 @@
 #include "singleton.h"
 #include "color.h"
 #include "vector2D.h"
+#include "texture.h"
 
 class ENGINE_API Renderer : public Singleton<Renderer>
 {
@@ -20,6 +21,7 @@ public:
 	void SetColor(const Color & color);
 
 	void DrawTexture(SDL_Texture* texture, const Vector2D& position, const Vector2D& scale, float angle);
+	void DrawTexture(Texture* texture, const Vector2D& position, const Vector2D& scale, float angle);
 	void DrawTexure(SDL_Texture* texture, const Vector2D&position, float angle);
 	void DrawText();
 	friend Singleton<Renderer>;
