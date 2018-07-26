@@ -1,9 +1,11 @@
 #include "renderer.h"
 #include "SDL_ttf.h"
+#include <SDL_image.h>
 
 bool Renderer::Initalize(Engine * engine)
 {
 	m_engine = engine;
+	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 	m_renderer = SDL_CreateRenderer(m_engine->GetWindow(), -1, 0);
 
 	return true;
@@ -11,6 +13,7 @@ bool Renderer::Initalize(Engine * engine)
 
 void Renderer::Shutdown()
 {
+	IMG_Quit();
 	SDL_DestroyRenderer(m_renderer);
 }
 

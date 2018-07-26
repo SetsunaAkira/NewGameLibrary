@@ -49,7 +49,7 @@ void Engine::Update()
 
 
 
-	///*SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
+	//SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
 	//SDL_RenderClear(m_renderer);*/
 	//
 	////DRAW

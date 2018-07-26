@@ -1,20 +1,22 @@
 #pragma once
 #include "physicsComponent.h"
+#include "engine.h"
 
-class kinematicComponent : public IPhysicsComponent
+class ENGINE_API kinematicComponent : public IPhysicsComponent
 {
 public:
-	kinematicComponent(Entity* owner) : IPhysicsComponent(owner) {}
+	kinematicComponent(Entity* sensei) : IPhysicsComponent(sensei) {}
 
-	void Create(float velocityMax, float dampening = 1.0f, bool enableGravity = false);
+	void Create(float velocityMax = 500.0f , float dampening = 1.0f, bool enableGravity = false);
 	void Destroy();
+	void Update();
 
-	void SetVelocity(const Vector2D& force, eForceType forcetype) { m_velocity = m_velocity; }
+	void SetVelocity(const Vector2D& velocity) { m_velocity = velocity; }
 	const Vector2D& GetVelocity() const { return m_velocity; }
 	void SetVelocityMax(float velocityMax) { m_velocityMax = velocityMax; }
 
 	void ApplyForce(const Vector2D& force, eForceType forceType);
-	void Enablegravity(bool enableGravity = true) { m_enableGravity = enableGravity; }
+	void EnableGravity(bool enableGravity = true) { m_enableGravity = enableGravity; }
 
 protected:
 	bool m_enableGravity = false;

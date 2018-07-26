@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include "texture.h"
 #include "assert.h"
+#include <SDL_Image.h>
 
 Texture::Texture()
 {
@@ -14,7 +15,7 @@ Texture::~Texture()
 
 bool Texture::Create(const std::string& textureName)
 {
-	SDL_Surface* surface = SDL_LoadBMP(textureName.c_str());
+	SDL_Surface* surface = IMG_Load(textureName.c_str());
 	assert(surface);
 	m_sdlTexture = SDL_CreateTextureFromSurface(Renderer::Instance()->GetRenderer(), surface);
 	SDL_FreeSurface(surface);

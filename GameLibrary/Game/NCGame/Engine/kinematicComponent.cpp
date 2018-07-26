@@ -1,5 +1,8 @@
 #include "kinematicComponent.h"
 #include "timer.h"
+#include "physics.h"
+#include "entity.h"
+#include "transformComponent.h"
 
 void kinematicComponent::Create(float velocityMax, float dampening, bool enableGravity)
 {
@@ -16,7 +19,51 @@ void kinematicComponent::Destroy()
 {
 }
 
-void kinematicComponent::ApplyForce(const Vector2D & force, eForceType forceType)
+void kinematicComponent::Update()
 {
 	float dt = Timer::Instance()->DeltaTimer();
+	Vector2D force = (m_enableGravity) ? m_force + Physics::Instance()->GetGravity() : m_force;
+
+	m_velocity = m_velocity + (force * dt);
+
+	float length = m_velocity.Length();
+	if (length > m_velocityMax)
+	{
+		m_velocity = m_velocity.Normalized() * m_velocityMax;
+	}
+
+	TransformComponent* transform = m_sensei->GetComponent<TransformComponent>();
+	if (transform)
+	{
+		transform->position = transform->position + (m_velocity * dt);
+	}
+
+	m_velocity = m_velocity * pow(m_dampening, dt);
+
+	if (m_forcetype == eForceType::IMPULSE)
+	{
+		m_force = Vector2D::zero;
+	}
+}
+
+void kinematicComponent::ApplyForce(const Vector2D & force, eForceType forceType)
+{
+	m_forcetype = forceType;
+
+	switch (m_forcetype)
+	{
+	case FORCE:
+		break;
+	case IMPULSE:
+		m_force = force;
+		break;
+	case VELOCITY:
+		m_force = Vector2D::zero;
+		m_velocity = force;
+		break;
+	}
+
+
+	
+	
 }
