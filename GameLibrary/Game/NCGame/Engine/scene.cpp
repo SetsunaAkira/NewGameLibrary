@@ -33,7 +33,7 @@ void Scene::addEntity(Entity * entity)
 	m_entities.push_back(entity);
 }
 
-void Scene::removeEntity(Entity * entity)
+void Scene::removeEntity(Entity * entity, bool destroy)
 {
 	assert(std::find(m_entities.begin(), m_entities.end(), entity) != m_entities.end());
 	assert(entity);
@@ -41,6 +41,11 @@ void Scene::removeEntity(Entity * entity)
 	auto iter = std::find(m_entities.begin(), m_entities.end(), entity);
 	if (iter != m_entities.end())
 	{
+		if (destroy)
+		{
+			(*iter)->Destroy();
+			delete *iter;
+		}
 		m_entities.erase(iter);
 	}
 }

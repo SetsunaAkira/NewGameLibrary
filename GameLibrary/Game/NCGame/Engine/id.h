@@ -2,7 +2,7 @@
 #include <string>
 #include "engine.h"
 
-class ID
+class ENGINE_API ID
 {
 public:
 	ID();

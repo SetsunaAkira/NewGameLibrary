@@ -13,6 +13,7 @@
 #include "audiosystem.h"
 #include "textureManager.h"
 #include "inputmanager.h"
+#include "fileSystem.h"
 
 
 Vector2D position(0.0f, 0.0f);
@@ -22,21 +23,15 @@ Text* text;
 
 bool Game::Initialize()
 {
-	m_scene = new Scene();
-	//text = Textmanager::Instance()->CreateText("PLEASE FIX ME", "..\\content\\Raleway-ExtraBold.ttf", 24, Color::red);
-
-	for (size_t i = 0; i < 2; i++)
+	bool success = m_engine->Initialize();
+	fileSystem::Instance()->setPathname("..\\Content\\Galaga\\");
 	{
-		
-
-		Ship* ship = new Ship();
-		/*float x = (float)(rand() % 800);
-		float y = (float)(rand() % 600);*/
+		m_scene = new Scene();
+		Ship* ship = new Ship(m_scene);
+		ship->Create(Vector2D(50.0f, 50.0f));
 		m_scene->addEntity(ship);
-		
 	}
 
-	bool success = m_engine->Initialize();
 	m_running = success;
 	return success;
 }

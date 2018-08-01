@@ -29,11 +29,11 @@ void Audiosystem::Shutdown()
 	m_sounds.clear();
 }
 
-void Audiosystem::AddSound(const std::string & id, const std::string & filename)
+void Audiosystem::AddSound(const std::string & id, const std::string & audioname)
 {
 	assert(m_sounds.find(id) == m_sounds.end());
 	FMOD::Sound* fmodsound = nullptr;
-	FMOD_RESULT result = m_fmodSystem->createSound(filename.c_str(), FMOD_DEFAULT, 0, &fmodsound);
+	FMOD_RESULT result = m_fmodSystem->createSound(audioname.c_str(), FMOD_DEFAULT, 0, &fmodsound);
 	if (result == FMOD_OK)
 	{
 		m_sounds[id] = fmodsound;

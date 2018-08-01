@@ -1,6 +1,17 @@
 #include "entity.h"
 #include <assert.h>
 #include "renderComponent.h"
+
+void Entity::Destroy()
+{
+	for (Component* component : m_components)
+	{
+		component->Destroy();
+		delete component;
+	}
+
+	m_components.clear();
+}
 void Entity::Update()
 {
 	for (Component* component : m_components)

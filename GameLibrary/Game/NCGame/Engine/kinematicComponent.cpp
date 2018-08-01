@@ -2,7 +2,7 @@
 #include "timer.h"
 #include "physics.h"
 #include "entity.h"
-#include "transformComponent.h"
+
 
 void kinematicComponent::Create(float velocityMax, float dampening, bool enableGravity)
 {
@@ -32,11 +32,8 @@ void kinematicComponent::Update()
 		m_velocity = m_velocity.Normalized() * m_velocityMax;
 	}
 
-	TransformComponent* transform = m_sensei->GetComponent<TransformComponent>();
-	if (transform)
-	{
-		transform->position = transform->position + (m_velocity * dt);
-	}
+	m_sensei->GetTransform().position = m_sensei->GetTransform().position + (m_velocity * dt);
+
 
 	m_velocity = m_velocity * pow(m_dampening, dt);
 

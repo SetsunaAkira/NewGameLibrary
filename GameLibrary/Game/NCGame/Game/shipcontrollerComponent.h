@@ -1,6 +1,7 @@
 #pragma once
 #include "entity.h"
 #include "controllerComponent.h"
+
 class shipcontrollerComponent : public IControllerComponent
 {
 public:

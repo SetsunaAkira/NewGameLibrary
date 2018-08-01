@@ -27,13 +27,13 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Engine\shipcontrollerComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
     <ClCompile Include="ship.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="missile.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="shipcontrollerComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,13 +41,13 @@
     <ClInclude Include="game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Engine\shipcontrollerComponent.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="ship.h">
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="missile.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="shipcontrollerComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
