@@ -18,7 +18,10 @@ public:
 	void Draw();
 
 	void addEntity(Entity* entity);
-	void removeEntity(Entity* entity, bool destroy = true);
+	std::list<Entity*>::iterator removeEntity(Entity* entity, bool destroy = true);
+
+	Entity* GetEntityWithID(const ID& id);
+	std::vector<Entity*> GetEntitiesWithTag(const ID& tag);
 	
 
 	Entity* findEntity(const ID& id);

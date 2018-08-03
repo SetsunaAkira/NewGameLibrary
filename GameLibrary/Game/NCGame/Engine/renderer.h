@@ -23,7 +23,9 @@ public:
 	void DrawTexture(SDL_Texture* texture, const Vector2D& position, const Vector2D& scale, float angle);
 	void DrawTexture(Texture* texture, const Vector2D& position, const Vector2D& scale, float angle);
 	void DrawTexure(SDL_Texture* texture, const Vector2D&position, float angle);
-	void DrawText();
+	
+	Vector2D GetSize();
+
 	friend Singleton<Renderer>;
 public:
 	Engine * m_engine;

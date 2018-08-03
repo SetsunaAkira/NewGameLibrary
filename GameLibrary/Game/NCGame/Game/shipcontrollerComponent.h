@@ -1,17 +1,15 @@
 #pragma once
-#include "entity.h"
 #include "controllerComponent.h"
 
-class shipcontrollerComponent : public IControllerComponent
+class ShipControllerComponent : public IControllerComponent
 {
 public:
-	shipcontrollerComponent(Entity* sensei) : IControllerComponent(sensei){}
+	ShipControllerComponent(Entity* owner) : IControllerComponent(owner) {}
 
 	void Create(float speed);
 	void Destroy();
 	void Update();
 
 protected:
-	float m_speed;
+	float m_speed = 0.0f;
 };
-

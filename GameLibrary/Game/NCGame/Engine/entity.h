@@ -58,8 +58,13 @@ public:
 
 	Scene* Getscene() { return m_scene; }
 	Transform & GetTransform() { return m_transform; }
+
+	void SetTag(const ID& tag) { m_tag = tag; }
+	const ID& GetTag() { return m_tag; }
+
 protected:
 	eState m_state = eState::ACTIVE;
+	ID m_tag;
 	Transform  m_transform;
 	Scene * m_scene;
 	std::vector<Component*> m_components;

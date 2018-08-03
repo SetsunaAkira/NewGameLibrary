@@ -12,7 +12,7 @@ int wmain(int argc, char* argv[])
 	Engine engine;
 	Game game(&engine);
 
-	game.Initialize();
+	game.Initalize();
 	while (game.Run()) game.Update();
 	game.Shutdown();
 	engine.Initialize();

@@ -2,13 +2,12 @@
 #include "entity.h"
 #include "vector2D.h"
 
-class Ship : public Entity
+class Enemy : public Entity
 {
 public:
-	Ship(Scene* scene) : Entity(scene) {}
-	~Ship() {}
+	Enemy(Scene* scene) : Entity(scene) {}
+	~Enemy() {}
 
 	void Create(const Vector2D& position);
 	void Update();
 };
-

@@ -2,6 +2,7 @@
 #include "kinematicComponent.h"
 #include "shipcontrollerComponent.h"
 #include "spriteComponent.h"
+#include "renderer.h"
 
 void Ship::Create(const Vector2D & position)
 {
@@ -12,11 +13,18 @@ void Ship::Create(const Vector2D & position)
 	kinematic->Create(500.0f, 0.3f);
 
 
-	shipcontrollerComponent* shipcontroller = addComponent<shipcontrollerComponent>();
+	ShipControllerComponent* shipcontroller = addComponent<ShipControllerComponent>();
 	shipcontroller->Create(600.0f);
 
 	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();
 	spriteComponent->Create("ship.png", Vector2D(0.5f, 0.5f));
 
 
+}
+
+void Ship::Update()
+{
+	Entity::Update();
+	Vector2D size = Renderer::Instance()->GetSize();
+	m_transform.position.x = Math::Clamp(m_transform.position.x, 0.0f, size.x);
 }

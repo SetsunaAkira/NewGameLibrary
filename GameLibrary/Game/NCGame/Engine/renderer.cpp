@@ -53,4 +53,12 @@ void Renderer::DrawTexure(SDL_Texture * texture, const Vector2D & position, floa
 	SDL_RenderCopyEx(m_renderer, texture, nullptr, &dest, angle, nullptr, SDL_FLIP_NONE);
 }
 
+Vector2D Renderer::GetSize()
+{
+	SDL_Point size;
+	SDL_GetRendererOutputSize(m_renderer, &size.x, &size.y);
+
+	return Vector2D();
+}
+
 
