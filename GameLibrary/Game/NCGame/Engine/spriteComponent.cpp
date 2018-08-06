@@ -2,11 +2,13 @@
 #include "texture.h"
 #include "entity.h"
 #include "renderer.h"
+#include <iostream>
 void SpriteComponent::Create(const std::string & textureName, const Vector2D& origin)
 {
 	m_texture = new Texture();
 	m_texture->Create(textureName);
 	m_origin = origin;
+	std::cout << "Create" << std::endl;
 }
 
 void SpriteComponent::Destroy()

@@ -5,6 +5,7 @@
 #include <assert.h>
 #include "scene.h"
 #include "transform.h"
+#include "event.h"
 
 class ENGINE_API Entity : public Object
 {
@@ -25,6 +26,8 @@ public:
 	virtual void Destroy();
 	virtual void Update();
 	virtual void Draw();
+
+	virtual void OnEvent(const Event& event);
 
 	template <typename T>
 	T* addComponent()

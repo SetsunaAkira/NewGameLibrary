@@ -30,6 +30,11 @@ void Entity::Draw()
 	}
 }
 
+void Entity::OnEvent(const Event & event)
+{
+
+}
+
 void Entity::addComponent(Component * component)
 {
 	assert(component);

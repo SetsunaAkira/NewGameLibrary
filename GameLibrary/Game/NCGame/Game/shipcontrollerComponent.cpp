@@ -4,6 +4,7 @@
 #include "audioSystem.h"
 #include "entity.h"
 #include "missile.h"
+#include <iostream>
 
 void ShipControllerComponent::Create(float speed)
 {
@@ -13,6 +14,7 @@ void ShipControllerComponent::Create(float speed)
 	Inputmanager::Instance()->AddAction("fire", SDL_SCANCODE_SPACE, Inputmanager::eDevice::KEYBOARD);
 
 	Audiosystem::Instance()->AddSound("fire", "laser.wav");
+	std::cout << "actions" << std::endl;
 }
 
 void ShipControllerComponent::Destroy()
@@ -37,7 +39,7 @@ void ShipControllerComponent::Update()
 	kinematicComponent* kinematic = m_sensei->GetComponent<kinematicComponent>();
 	if (kinematic)
 	{
-		kinematic->ApplyForce(force * m_speed, kinematicComponent::VELOCITY);
+		//kinematic->ApplyForce(force * m_speed, kinematicComponent::VELOCITY);
 	}
 
 	if (Inputmanager::Instance()->GetActionButton("fire") == Inputmanager::ebuttonState::PRESSED)

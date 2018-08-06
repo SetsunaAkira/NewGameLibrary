@@ -2,6 +2,7 @@
 #include "timer.h"
 #include "physics.h"
 #include "entity.h"
+#include <iostream>
 
 
 void kinematicComponent::Create(float velocityMax, float dampening, bool enableGravity)
@@ -13,6 +14,8 @@ void kinematicComponent::Create(float velocityMax, float dampening, bool enableG
 	m_forcetype = eForceType::FORCE;
 	m_force = Vector2D::zero;
 	m_velocity = Vector2D::zero;
+
+	std::cout << "Kinematic" << std::endl;
 }
 
 void kinematicComponent::Destroy()

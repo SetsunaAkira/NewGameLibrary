@@ -36,11 +36,10 @@ void Game::Update()
 	m_running = !m_engine->IsQuit();
 	m_engine->Update();
 
-	m_scene->Update();
-
 	Renderer::Instance()->BeginFrame();
-	Renderer::Instance()->SetColor(Color::black);
 
+	m_scene->Update();
+	Renderer::Instance()->SetColor(Color::black);
 	m_scene->Draw();
 
 	Renderer::Instance()->EndFrame();

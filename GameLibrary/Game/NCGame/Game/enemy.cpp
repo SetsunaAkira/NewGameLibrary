@@ -1,12 +1,13 @@
 #include "enemy.h"
 #include "kinematicComponent.h"
 #include "spriteComponent.h"
+#include "aabbComponent.h"
 
 void Enemy::Create(const Vector2D & position)
 {
 	m_transform.position = position;
 	m_transform.scale = Vector2D(2.0f, 2.0f);
-
+	SetTag("enemy");
 	kinematicComponent* kinematic = addComponent<kinematicComponent>();
 	kinematic->Create(500.0f, 0.3f);
 
@@ -15,9 +16,23 @@ void Enemy::Create(const Vector2D & position)
 
 	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();
 	spriteComponent->Create("enemy01A.png", Vector2D(0.5f, 0.5f));
+
+	AABBComponent* aabbComponent = addComponent<AABBComponent>();
+	aabbComponent->Create();
 }
 
 void Enemy::Update()
 {
 	Entity::Update();
+}
+
+void Enemy::OnEvent(const Event & event)
+{
+	if (event.EventID == "collision")
+	{
+		if (event.sender->GetTag() == "playermissle")
+		{
+			SetState(Entity::DESTROY);
+		}
+	}
 }

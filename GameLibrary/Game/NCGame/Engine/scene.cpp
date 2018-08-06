@@ -1,7 +1,12 @@
+#include "collisionComponent.h"
 #include "scene.h"
 #include "entity.h"
+#include <vector>
 #include <assert.h>
 #include "id.h"
+#include "event.h"
+#include "eventmanager.h"
+
 
 
 bool Scene::Intialize()
@@ -11,20 +16,38 @@ bool Scene::Intialize()
 
 void Scene::Update()
 {
+	size_t size = m_entities.size();
 	for (Entity* entity : m_entities)
 	{
 		entity->Update();
 	}
-	std::list<Entity*>::iterator iter = m_entities.begin();
-	while (iter != m_entities.end())
+
+    std::vector<ICollisionComponent*> collisionComponents;
+	for (Entity* entity : m_entities)
 	{
-		if ((*iter)->GetState() == Entity::DESTROY)
+		ICollisionComponent* collisionComponent = entity->GetComponent<ICollisionComponent>();
+		if (collisionComponent)
 		{
-			iter = removeEntity(*iter);
+			collisionComponents.push_back(collisionComponent);
 		}
-		else
+	}
+
+	for (size_t i = 0; i < collisionComponents.size(); i++)
+	{
+		for (size_t j = i + 1; j < collisionComponents.size(); j++)
 		{
-			iter++;
+			if (collisionComponents[i]->Intersects(collisionComponents[j]))
+			{
+				Event event;
+				event.EventID = "collision";
+				event.reciever = collisionComponents[i]->GetOwner();
+				event.sender = collisionComponents[j]->GetOwner();
+				EventManager::Instance()->SendMessage(event);
+
+				event.reciever = collisionComponents[j]->GetOwner();
+				event.sender = collisionComponents[i]->GetOwner();
+				EventManager::Instance()->SendMessage(event);	
+			}
 		}
 	}
 }

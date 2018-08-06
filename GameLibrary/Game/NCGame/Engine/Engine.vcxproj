@@ -143,12 +143,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="aabb.h" />
+    <ClInclude Include="aabbComponent.h" />
     <ClInclude Include="audiosystem.h" />
+    <ClInclude Include="collisionComponent.h" />
     <ClInclude Include="color.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="controllerComponent.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="event.h" />
+    <ClInclude Include="eventmanager.h" />
     <ClInclude Include="fileSystem.h" />
     <ClInclude Include="id.h" />
     <ClInclude Include="inputmanager.h" />
@@ -174,12 +179,16 @@
     <ClInclude Include="vector3D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="aabb.cpp" />
+    <ClCompile Include="aabbComponent.cpp" />
     <ClCompile Include="audiosystem.cpp" />
+    <ClCompile Include="collisionComponent.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="controllerComponent.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="eventmanager.cpp" />
     <ClCompile Include="fileSystem.cpp" />
     <ClCompile Include="id.cpp" />
     <ClCompile Include="inputmanager.cpp" />

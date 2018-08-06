@@ -1,5 +1,4 @@
 #pragma once
-
 #include "vector2D.h"
 #include "vector3D.h"
 #include "matrix33.h"
@@ -12,11 +11,13 @@ class ENGINE_API SpriteComponent : public IRenderComponent
 public:
 	SpriteComponent(Entity* owner) : IRenderComponent(owner) {}
 
-	void Create(const std::string& textureName, const Vector2D& origion = Vector2D::zero);
+	void Create(const std::string& textureName, const Vector2D& origin = Vector2D::zero);
 	void Destroy();
 	void Update();
 
 	void Draw();
+	Texture* GetTexture() { return m_texture; }
+	const Vector2D& GetOrigin() { return m_origin; }
 
 protected:
 	Vector2D m_origin;

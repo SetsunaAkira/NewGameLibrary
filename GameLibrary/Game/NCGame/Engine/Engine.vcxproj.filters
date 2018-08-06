@@ -25,6 +25,12 @@
     <Filter Include="Components">
       <UniqueIdentifier>{c2a060e4-74c9-447e-a78d-141af0d9d2f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{466de8c6-dfde-4bb3-83fa-b3716a4cd81e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{da227555-0067-40fe-9aa2-c49cfaf5e150}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h">
@@ -78,34 +84,13 @@
     <ClInclude Include="object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="components.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="renderComponent.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="spriteComponent.h">
-      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="texture.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="controllerComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="physics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="physicsComponent.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="kinematicComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="transform.h">
@@ -113,6 +98,42 @@
     </ClInclude>
     <ClInclude Include="fileSystem.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aabb.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="physics.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="physicsComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="renderComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="spriteComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="kinematicComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="controllerComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="collisionComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="aabbComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eventmanager.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -170,29 +191,41 @@
     <ClCompile Include="component.cpp">
       <Filter>Components</Filter>
     </ClCompile>
-    <ClCompile Include="spriteComponent.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="texture.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="controllerComponent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="scene.cpp">
       <Filter>Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="physics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="kinematicComponent.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="transform.cpp">
       <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="fileSystem.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="physics.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="aabb.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="spriteComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="collisionComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="controllerComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="kinematicComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="aabbComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="eventmanager.cpp">
+      <Filter>Event</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
