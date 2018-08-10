@@ -42,6 +42,22 @@ void Engine::Update()
 	Physics::Instance()->Update();
 	fileSystem::Instance()->Update();
 
+	SDL_Event event;
+	SDL_PollEvent(&event);
+
+	switch (event.type)
+	{
+	case SDL_QUIT:
+		m_isQuit = true;
+		break;
+	case SDL_KEYDOWN:
+		if (event.key.keysym.sym == SDLK_ESCAPE)
+		{
+			m_isQuit = true;
+		}
+	}
+
+	SDL_PumpEvents();
 }
 
 void Engine::Shutdown()

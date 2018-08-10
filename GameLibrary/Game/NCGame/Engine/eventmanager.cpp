@@ -19,3 +19,8 @@ void EventManager::SendMessage(const Event & event)
 {
 	event.reciever->OnEvent(event);
 }
+
+void EventManager::SendGameMessage(const Event & event)
+{
+	m_gamereciever->OnEvent(event);
+}

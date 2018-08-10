@@ -69,7 +69,7 @@ Vector2D Renderer::GetSize()
 	SDL_Point size;
 	SDL_GetRendererOutputSize(m_renderer, &size.x, &size.y);
 
-	return Vector2D();
+	return size;
 }
 
 

@@ -6,8 +6,9 @@
 #include "scene.h"
 #include "transform.h"
 #include "event.h"
+#include "eventreciever.h"
 
-class ENGINE_API Entity : public Object
+class ENGINE_API Entity : public Object, public EventReciever
 {
 public:
 	enum eState
@@ -60,7 +61,10 @@ public:
 	eState SetState(eState state) { return m_state = state; }
 
 	Scene* Getscene() { return m_scene; }
-	Transform & GetTransform() { return m_transform; }
+	Transform & GetTransform() 
+	{ 
+		return m_transform; 
+	}
 
 	void SetTag(const ID& tag) { m_tag = tag; }
 	const ID& GetTag() { return m_tag; }

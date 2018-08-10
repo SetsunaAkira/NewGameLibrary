@@ -135,6 +135,15 @@
     <ClInclude Include="event.h">
       <Filter>Event</Filter>
     </ClInclude>
+    <ClInclude Include="textComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eventreciever.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="animationcomponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp">
@@ -226,6 +235,12 @@
     </ClCompile>
     <ClCompile Include="eventmanager.cpp">
       <Filter>Event</Filter>
+    </ClCompile>
+    <ClCompile Include="textComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animationcomponent.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -22,11 +22,10 @@ void Textmanager::Shutdown()
 
 Text * Textmanager::CreateText(const std::string & text, const std::string & fontName, int size, const Color & color)
 {
-	Text* _text = new Text(text, fontName, size, color);
+	Text * _text = new Text();
+	_text->Create(text, fontName, size, color);
 	assert(_text);
-	
 	m_texts.push_back(_text);
-
 	return _text;
 }
 

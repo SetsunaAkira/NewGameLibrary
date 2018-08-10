@@ -2,6 +2,7 @@
 #include "engine.h"
 #include "singleton.h"
 #include <map>
+#include "text.h"
 class ENGINE_API TextureManager : public Singleton<TextureManager>
 {
 public:
@@ -20,6 +21,7 @@ public:
 		}
 		return m_instance; 
 	}*/
+
 public:
 	TextureManager() {}
 	~TextureManager() {}

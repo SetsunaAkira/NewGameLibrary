@@ -2,6 +2,8 @@
 #include "kinematicComponent.h"
 #include "spriteComponent.h"
 #include "aabbComponent.h"
+#include "audiosystem.h"
+#include "eventmanager.h"
 
 void Enemy::Create(const Vector2D & position)
 {
@@ -19,6 +21,8 @@ void Enemy::Create(const Vector2D & position)
 
 	AABBComponent* aabbComponent = addComponent<AABBComponent>();
 	aabbComponent->Create();
+
+	Audiosystem::Instance()->AddSound("explosion", "enemy-hit01.wav");
 }
 
 void Enemy::Update()
@@ -32,7 +36,11 @@ void Enemy::OnEvent(const Event & event)
 	{
 		if (event.sender->GetTag() == "playermissle")
 		{
+			Event _event;
+			_event.EventID = "add_score";
+			EventManager::Instance()->SendGameMessage(_event);
 			SetState(Entity::DESTROY);
+			Audiosystem::Instance()->PlaySound("explosion",false);
 		}
 	}
 }

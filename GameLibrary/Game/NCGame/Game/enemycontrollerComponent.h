@@ -1,6 +1,7 @@
 #pragma once
 #include "entity.h"
 #include "controllerComponent.h"
+
 class enemycontrollerComponent : public IControllerComponent
 {
 public:
@@ -12,5 +13,6 @@ public:
 
 protected:
 	float m_speed;
+	float m_timer;
 };
 

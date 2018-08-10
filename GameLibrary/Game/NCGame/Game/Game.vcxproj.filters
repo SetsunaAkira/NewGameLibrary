@@ -33,14 +33,17 @@
     <ClCompile Include="missile.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="enemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="enemycontrollerComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="shipcontrollerComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="enemymissile.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,14 +56,17 @@
     <ClInclude Include="missile.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="enemycontrollerComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="shipcontrollerComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="enemymissile.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

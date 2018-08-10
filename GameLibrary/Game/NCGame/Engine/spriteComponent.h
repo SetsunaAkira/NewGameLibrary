@@ -16,6 +16,7 @@ public:
 	void Update();
 
 	void Draw();
+	void SetTexture(Texture* texture) { m_texture = texture; }
 	Texture* GetTexture() { return m_texture; }
 	const Vector2D& GetOrigin() { return m_origin; }
 
