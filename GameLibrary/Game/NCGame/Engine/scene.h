@@ -3,6 +3,7 @@
 #include "id.h"
 #include "engine.h"
 #include <list>
+#include <assert.h>
 
 class Entity;
 
@@ -16,6 +17,16 @@ public:
 	void Update();
 	void Shutdown();
 	void Draw();
+
+	template <typename T>
+	T* addEntity(const ID& id = ID())
+	{
+		T* entity = new T(this, id);
+		assert(dynamic_cast<Entity*>(entity));
+		m_entities.push_back(entity);
+
+		return entity;
+	}
 
 	void addEntity(Entity* entity);
 	std::list<Entity*>::iterator removeEntity(Entity* entity, bool destroy = true);

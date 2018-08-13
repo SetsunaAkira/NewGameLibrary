@@ -24,7 +24,7 @@ void Missile::Create(const ID& tag,const Vector2D & position, const Vector2D & d
 		spriteComponent->Create("missile02.png", Vector2D(0.5f, 0.5f));
 	}
 	AABBComponent* aabbComponent = addComponent<AABBComponent>();
-	aabbComponent->Create();
+	aabbComponent->Create(Vector2D(0.7f, 0.9f));
 }
 
 
