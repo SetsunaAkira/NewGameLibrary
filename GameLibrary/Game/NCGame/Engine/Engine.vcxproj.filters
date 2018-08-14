@@ -31,15 +31,15 @@
     <Filter Include="Event">
       <UniqueIdentifier>{da227555-0067-40fe-9aa2-c49cfaf5e150}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{61dc2138-522d-45dc-aa1d-779487b997cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="textureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inputmanager.h">
@@ -144,6 +144,15 @@
     <ClInclude Include="animationcomponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="state.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="statemachine.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp">
@@ -241,6 +250,12 @@
     </ClCompile>
     <ClCompile Include="animationcomponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="state.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="statemachine.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

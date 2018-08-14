@@ -22,7 +22,7 @@ bool Texture::Create(const std::string& textureName)
 	//assert(surface);
 	//m_sdlTexture = SDL_CreateTextureFromSurface(Renderer::Instance()->GetRenderer(), surface);
 	//SDL_FreeSurface(surface);
-
+	
 	return (m_sdlTexture);
 }
 

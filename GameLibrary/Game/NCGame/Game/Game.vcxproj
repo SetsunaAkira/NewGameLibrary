@@ -144,6 +144,7 @@
     <ClCompile Include="missile.cpp" />
     <ClCompile Include="ship.cpp" />
     <ClCompile Include="shipcontrollerComponent.cpp" />
+    <ClCompile Include="states.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -159,6 +160,7 @@
     <ClInclude Include="missile.h" />
     <ClInclude Include="ship.h" />
     <ClInclude Include="shipcontrollerComponent.h" />
+    <ClInclude Include="states.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
