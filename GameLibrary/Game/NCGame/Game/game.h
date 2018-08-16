@@ -14,11 +14,13 @@ public:
 	void Shutdown();
 	void Update();
 
-	bool Run() { return m_running; }
 	void OnEvent(const Event& event);
+
+	bool Run() { return m_running; }
 
 protected:
 	size_t m_score = 0;
+
 	bool m_running = false;
 	Engine* m_engine = nullptr;
 	Scene* m_scene = nullptr;

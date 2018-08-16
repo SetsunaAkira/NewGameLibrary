@@ -3,11 +3,10 @@
 #include "engine.h"
 #include "event.h"
 #include "eventreciever.h"
+
 class ENGINE_API EventManager : public Singleton<EventManager>
 {
 public:
-	EventManager(){}
-	
 	bool Initialize(Engine* engine);
 	void Shutdown();
 	void Update();
@@ -20,7 +19,7 @@ protected:
 	friend Singleton<EventManager>;
 
 protected:
-	Engine * m_engine;
+	Engine * m_engine = nullptr;
 	EventReciever* m_gamereciever = nullptr;
 
 };

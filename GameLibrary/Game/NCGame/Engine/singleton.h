@@ -24,7 +24,7 @@ public:
 	}
 
 protected:
-	Singleton() {}
+	inline explicit Singleton(){}
 
 private:
 	static T * m_instance;

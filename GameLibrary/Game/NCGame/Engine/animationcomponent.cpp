@@ -4,10 +4,6 @@
 #include "spriteComponent.h"
 #include "entity.h"
 
-
-
-
-
 void AnimationComponent::Create(const std::vector<std::string>& texturenames, float rate, ePlayback playback)
 {
 	for (std::string texturename : texturenames)
@@ -49,11 +45,11 @@ void AnimationComponent::Update()
 				m_frame = (int)m_textures.size() - 1;
 				break;
 			case ePlayback::ONE_TIME_DESTROY:
-				m_frame = m_textures.size() - 1;
+				m_frame = (int)m_textures.size() - 1;
 				m_sensei->SetState(Entity::DESTROY);
 				break;
 			case ePlayback::PING_PONG:
-				m_frame = Math::Clamp(m_frame, 0, m_textures.size() - 1);
+				m_frame = Math::Clamp(m_frame, 0,(int)m_textures.size() - 1);
 				m_direction = -m_direction;
 			}
 

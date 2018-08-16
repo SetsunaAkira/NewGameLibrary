@@ -52,6 +52,19 @@ void Scene::Update()
 			}
 		}
 	}
+
+	std::list<Entity*>::iterator iter = m_entities.begin();
+	while (iter != m_entities.end())
+	{
+		if ((*iter)->GetState() == Entity::DESTROY)
+		{
+			iter = removeEntity(*iter);
+		}
+		else
+		{
+			iter++;
+		}
+	}
 }
 
 void Scene::Shutdown()
@@ -98,6 +111,7 @@ Entity * Scene::GetEntityWithID(const ID & id)
 		if (*_entity == id)
 		{
 			entity = _entity;
+			break;
 		}
 	}
 	return entity;

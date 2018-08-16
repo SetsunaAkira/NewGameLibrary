@@ -46,8 +46,6 @@ public:
 	};
 
 public:
-	Inputmanager() {}
-
 	bool Initalize(Engine* engine);
 	void Update();
 	void Shutdown();
@@ -61,12 +59,12 @@ public:
 	float GetAxisAbsolute(int id, eDevice device = eDevice::CONTROLLER, int index = 0);
 	float GetAxisRelative(int id, eDevice device = eDevice::CONTROLLER, int index = 0);
 
-	
-
 protected:
 	bool GetButtonDown(int id, eDevice device, int index = 0);
 	bool GetPreviousButtonDown(int id, eDevice device, int index = 0);
 
+public:
+	Inputmanager() {}
 
 private:
 	Engine * m_engine;

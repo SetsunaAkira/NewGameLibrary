@@ -5,9 +5,6 @@
 class ENGINE_API fileSystem : public Singleton<fileSystem>
 {
 public:
-	fileSystem(){}
-	~fileSystem(){}
-
 	bool Initialize(Engine * engine);
 	void Update();
 	void Shutdown();

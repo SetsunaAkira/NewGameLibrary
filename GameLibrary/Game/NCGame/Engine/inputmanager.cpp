@@ -13,11 +13,9 @@ bool Inputmanager::Initalize(Engine* engine)
 	const Uint8* keystate = SDL_GetKeyboardState(nullptr);
 	memcpy(m_KeyState, keystate, m_numKeys);
 	memcpy(m_prevKeyState, keystate, m_numKeys);
-
 	
-	
-		m_mousebuttonState = SDL_GetMouseState(nullptr, nullptr);		
-		m_prevmousebuttonState = m_mousebuttonState;
+	m_mousebuttonState = SDL_GetMouseState(nullptr, nullptr);		
+	m_prevmousebuttonState = m_mousebuttonState;
 
 		for (int i = 0; i < SDL_NumJoysticks(); i++)
 		{
@@ -33,8 +31,6 @@ bool Inputmanager::Initalize(Engine* engine)
 				m_controllers.push_back(controllerinfo);
 			}
 		}
-	
-
 	return true;
 }
 

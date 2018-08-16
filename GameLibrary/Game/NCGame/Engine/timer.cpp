@@ -3,9 +3,13 @@
 
 bool Timer::Initalize(Engine * engine)
 {
+	engine;
+
+	m_timeScale = 1.0f;
 	m_paused = false;
-	m_TimeScale = 1.0f;
-	m_engine = engine;
+	m_startTicks = SDL_GetTicks();
+	m_frameCounter = 0;
+
 	return true;
 }
 
@@ -17,8 +21,16 @@ void Timer::Shutdown()
 void Timer::Update()
 {
 	Uint32 ticks = SDL_GetTicks();
-	Uint32 milleseconds = ticks - m_prevTicks;
+	Uint32 milliseconds = ticks - m_prevTicks;
 	m_prevTicks = ticks;
 
-	m_dt = (m_paused) ? 0.0f : milleseconds / 1000.0f;
+	m_frameCounter++;
+	if (m_frameCounter == FRAME_COUNT)
+	{
+		m_fps = FRAME_COUNT / (1000.0f / (SDL_GetTicks() - m_startTicks));
+		m_frameCounter = 0;
+		m_startTicks = SDL_GetTicks();
+	}
+
+	m_dt = (m_paused) ? 0.0f : milliseconds / 1000.0f;
 }

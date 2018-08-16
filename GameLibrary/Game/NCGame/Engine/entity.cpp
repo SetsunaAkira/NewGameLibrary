@@ -32,7 +32,7 @@ void Entity::Draw()
 
 void Entity::OnEvent(const Event & event)
 {
-
+	event;
 }
 
 void Entity::addComponent(Component * component)

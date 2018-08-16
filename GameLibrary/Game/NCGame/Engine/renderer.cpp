@@ -5,8 +5,8 @@
 bool Renderer::Initalize(Engine * engine)
 {
 	m_engine = engine;
-	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 	m_renderer = SDL_CreateRenderer(m_engine->GetWindow(), -1, 0);
+	IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG);
 
 	return true;
 }
@@ -34,9 +34,14 @@ void Renderer::SetColor(const Color & color)
 
 void Renderer::DrawTexture(SDL_Texture * texture, const Vector2D & position, const Vector2D & scale, float angle)
 {
-	SDL_Point point = position * scale;
+	SDL_Point point = position;
 	SDL_Rect dest = { point.x, point.y, 0, 0 };
 	SDL_QueryTexture(texture, nullptr, nullptr, &dest.w, &dest.h);
+	Vector2D size(dest.w, dest.h);
+	size = size * scale;
+	dest.w = static_cast<int>(size.x);
+	dest.h = static_cast<int>(size.y);
+
 	SDL_RenderCopyEx(m_renderer, texture, nullptr, &dest, angle, nullptr, SDL_FLIP_NONE);
 }
 
@@ -45,7 +50,7 @@ void Renderer::DrawTexture(Texture * texture, const Vector2D & position, const V
 	DrawTexture(texture->m_sdlTexture, position, scale, angle);
 }
 
-void Renderer::DrawTexure(SDL_Texture * texture, const Vector2D & position, float angle)
+void Renderer::DrawTexture(SDL_Texture * texture, const Vector2D & position, float angle)
 {
 	SDL_Point point = position;
 	SDL_Rect dest = { point.x, point.y, 0, 0 };

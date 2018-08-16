@@ -5,13 +5,15 @@
 
 bool Audiosystem::Initalize(Engine * engine)
 {
-	void *extradriverdata = nullptr;
+	engine;
+
 	FMOD_RESULT result = FMOD::System_Create(&m_fmodSystem);
 	assert(result == FMOD_OK);
+
+	void* extradriverdata = nullptr;
 	result = m_fmodSystem->init(32, FMOD_INIT_NORMAL, extradriverdata);
 	assert(result == FMOD_OK);
 
-	m_engine = engine;
 	return true;
 }
 
@@ -28,6 +30,12 @@ void Audiosystem::Shutdown()
 		sound.second->release();
 	}
 	m_sounds.clear();
+
+	FMOD_RESULT result = m_fmodSystem->close();
+	assert(result == FMOD_OK);
+
+	result = m_fmodSystem->release();
+	assert(result == FMOD_OK);
 }
 
 void Audiosystem::AddSound(const std::string & id, const std::string & audioname)

@@ -53,7 +53,6 @@ void kinematicComponent::ApplyForce(const Vector2D & force, eForceType forceType
 	switch (m_forcetype)
 	{
 	case FORCE:
-		break;
 	case IMPULSE:
 		m_force = force;
 		break;

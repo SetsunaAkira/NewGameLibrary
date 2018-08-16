@@ -17,10 +17,12 @@ void Text::Create(const std::string & text, const std::string & fontName, int si
 {
 	m_texture = new Texture();
 
-	m_text = text.c_str();
+	m_text = text;
 	m_color = color;
 	std::string filename = fileSystem::Instance()->getPathname() + fontName;
 	m_font = TTF_OpenFont(fontName.c_str(), size);
+
+	CreateTexture();
 }
 
 void Text::Draw(const Vector2D & position, const Vector2D & origin, const Vector2D & scale, float angle)

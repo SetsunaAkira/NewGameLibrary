@@ -11,12 +11,13 @@ bool Textmanager::Initialize(Engine * engine)
 
 void Textmanager::Shutdown()
 {
-	TTF_Quit();
 	for (Text* text : m_texts)
 	{
 		delete (text);
 	}
 	m_texts.clear();
+
+	TTF_Quit();
 
 }
 
@@ -38,6 +39,4 @@ void Textmanager::DestroyText(Text * text)
 		m_texts.erase(iter);
 
 	}
-
-
 }

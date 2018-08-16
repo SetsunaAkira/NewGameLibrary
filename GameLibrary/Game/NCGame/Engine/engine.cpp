@@ -30,6 +30,8 @@ bool Engine::Initialize()
 	Inputmanager::Instance()->Initalize(this);
 	Textmanager::Instance()->Initialize(this);
 	Physics::Instance()->Initialize(this);	
+
+	Physics::Instance()->SetGravity(Vector2D(0.0f, 400.0f));
 	return true;
 }
 
@@ -70,4 +72,7 @@ void Engine::Shutdown()
 	Textmanager::Instance()->Shutdown();
 	Physics::Instance()->Shutdown();
 	fileSystem::Instance()->Shutdown();
+
+	SDL_DestroyWindow(m_window);
+	SDL_Quit();
 }

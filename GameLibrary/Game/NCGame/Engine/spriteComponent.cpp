@@ -11,7 +11,6 @@ void SpriteComponent::Create(const std::string & textureName, const Vector2D& or
 		m_texture->Create(textureName);
 	}
 	m_origin = origin;
-	std::cout << "Create" << std::endl;
 }
 
 void SpriteComponent::Destroy()

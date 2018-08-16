@@ -1,21 +1,25 @@
 #include "enemy.h"
 #include "kinematicComponent.h"
 #include "spriteComponent.h"
+#include "enemyControllerComponent.h"
 #include "aabbComponent.h"
-#include "audiosystem.h"
-#include "eventmanager.h"
+#include "renderer.h"
+#include "audioSystem.h"
+#include "eventManager.h"
 #include "enemyexplosion.h"
 
 void Enemy::Create(const Vector2D & position)
 {
+	SetTag("enemy");
 	m_transform.position = position;
 	m_transform.scale = Vector2D(2.0f, 2.0f);
-	SetTag("enemy");
+
 	kinematicComponent* kinematic = addComponent<kinematicComponent>();
 	kinematic->Create(500.0f, 0.3f);
 
-	//ShipControllerComponent* shipController = AddComponent<ShipControllerComponent>();
-	//shipController->Create(600.0f);
+	enemycontrollerComponent* controller = addComponent<enemycontrollerComponent>();
+	controller->Create(200.0f);
+
 
 	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();
 	spriteComponent->Create("enemy01A.png", Vector2D(0.5f, 0.5f));
@@ -29,6 +33,14 @@ void Enemy::Create(const Vector2D & position)
 void Enemy::Update()
 {
 	Entity::Update();
+
+	Vector2D size = Renderer::Instance()->GetSize();
+	if (m_transform.position.y > size.y + 64.0f)
+	{
+		float x = Math::GetRandomRange(0.0f, size.x);
+		float y = -100.0f;
+		m_transform.position = Vector2D(x, y);
+	}
 }
 
 void Enemy::OnEvent(const Event & event)

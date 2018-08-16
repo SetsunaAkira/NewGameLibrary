@@ -5,7 +5,6 @@
 
 int wmain(int argc, char* argv[])
 {
-	
 	argc;
 	argv;
 
@@ -15,12 +14,6 @@ int wmain(int argc, char* argv[])
 	game.Initalize();
 	while (game.Run()) game.Update();
 	game.Shutdown();
-	engine.Initialize();
-	while (!engine.IsQuit())
-	{
-		engine.Update();
-	}
-	engine.Shutdown();
 
 	return 0;
 }

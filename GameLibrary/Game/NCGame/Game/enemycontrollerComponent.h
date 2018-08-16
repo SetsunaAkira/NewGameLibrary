@@ -14,5 +14,7 @@ public:
 protected:
 	float m_speed;
 	float m_timer;
+	float m_fireRateMin = 1.0f;
+	float m_fireRateMax = 3.0f;
 };
 
