@@ -151,7 +151,9 @@
     <ClInclude Include="singleton.h">
       <Filter>Framework</Filter>
     </ClInclude>
-    <ClInclude Include="waypoint.h" />
+    <ClInclude Include="waypoint.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp">
@@ -257,7 +259,7 @@
       <Filter>Systems</Filter>
     </ClCompile>
     <ClCompile Include="waypoint.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

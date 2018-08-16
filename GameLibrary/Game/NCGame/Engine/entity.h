@@ -7,6 +7,7 @@
 #include "transform.h"
 #include "event.h"
 #include "eventreciever.h"
+#include "collisionComponent.h"
 
 class ENGINE_API Entity : public Object, public EventReciever
 {
@@ -38,6 +39,20 @@ public:
 		m_components.push_back(component);
 
 		return component;
+	}
+
+	bool Intersects(Entity* otherEntity)
+	{
+		bool intersects = false;
+		ICollisionComponent* collisionA = GetComponent<ICollisionComponent>();
+		ICollisionComponent* collisionB = otherEntity->GetComponent<ICollisionComponent>();
+
+		if (collisionA && collisionB)
+		{
+			intersects = collisionA->Intersects(collisionB);
+		}
+
+		return intersects;
 	}
 
 	void addComponent(Component* component);

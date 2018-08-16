@@ -12,5 +12,5 @@ public:
 	void Update();
 
 protected:
-	Entity * m_owner = nullptr;
+	Entity * m_sensei = nullptr;
 };

@@ -47,6 +47,9 @@
     <ClCompile Include="states.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="enemyWaypointControllerComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ship.h">
@@ -75,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="states.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyWaypointControllerComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
