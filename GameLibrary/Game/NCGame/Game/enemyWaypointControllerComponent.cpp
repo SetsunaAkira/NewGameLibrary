@@ -2,6 +2,7 @@
 #include "timer.h"
 #include "kinematicComponent.h"
 #include "waypoint.h"
+#include "debugdraw.h"
 
 void EnemyWaypointControllerComponent::Create(float speed, const std::vector<Vector2D>& points)
 {
@@ -33,6 +34,8 @@ void EnemyWaypointControllerComponent::Update()
 	{
 		SetNextWaypoint();
 	}
+
+	DEBUG_DRAW_LINE(m_sensei->GetTransform().position, m_waypoint->GetTransform().position, Color::white);
 
 	float dt = Timer::Instance()->DeltaTimer();
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "eventreciever.h"
 
+class StateMachine;
 class Engine;
 class Scene;
 
@@ -24,4 +25,5 @@ protected:
 	bool m_running = false;
 	Engine* m_engine = nullptr;
 	Scene* m_scene = nullptr;
+	StateMachine* m_statemachine = nullptr;
 };

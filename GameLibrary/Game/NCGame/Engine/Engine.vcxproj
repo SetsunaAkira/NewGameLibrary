@@ -152,6 +152,7 @@
     <ClInclude Include="color.h" />
     <ClInclude Include="components.h" />
     <ClInclude Include="controllerComponent.h" />
+    <ClInclude Include="debugdraw.h" />
     <ClInclude Include="engine.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="event.h" />
@@ -194,6 +195,7 @@
     <ClCompile Include="color.cpp" />
     <ClCompile Include="component.cpp" />
     <ClCompile Include="controllerComponent.cpp" />
+    <ClCompile Include="debugdraw.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="eventmanager.cpp" />

@@ -9,6 +9,8 @@
 #include "animationComponent.h"
 #include "textComponent.h"
 #include "eventManager.h"
+#include "statemachine.h"
+#include "states.h"
 
 bool Game::Initalize()
 {
@@ -18,6 +20,13 @@ bool Game::Initalize()
 	EventManager::Instance()->SetGameReciever(this);
 
 	m_scene = new Scene();
+
+	m_statemachine = new StateMachine(m_scene);
+
+	m_statemachine->AddState("title", new TitleState(m_statemachine));
+	m_statemachine->AddState("game", new GameState(m_statemachine));
+	m_statemachine->SetState("title");
+
 
 	//Entity* entity = new Entity(m_scene);
 	//entity->GetTransform().position = Vector2D(400.0f, 300.0f);
@@ -80,6 +89,8 @@ void Game::Update()
 		while (score.length() < 5) score = "0" + score;
 		textComponent->SetText(score);
 	}
+
+	m_statemachine->Update();
 
 	Renderer::Instance()->SetColor(Color::black);
 	Renderer::Instance()->BeginFrame();

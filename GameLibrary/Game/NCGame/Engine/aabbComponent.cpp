@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "spriteComponent.h"
 #include "texture.h"
+#include "debugdraw.h"
 
 void AABBComponent::Create(const Vector2D& offset)
 {
@@ -27,9 +28,9 @@ void AABBComponent::Update()
 		position = position - (size * spriteComponent->GetOrigin());
 	}
 	m_aabb.Build(position, size * 0.5f);
-#ifdef _DEBUG
-	m_aabb.Draw(Color::red);
-#endif _DEBUG
+
+	DEBUG_DRAW_AABB(m_aabb,Color::red);
+
 
 }
 

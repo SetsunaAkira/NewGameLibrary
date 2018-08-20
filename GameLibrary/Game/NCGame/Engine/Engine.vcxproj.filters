@@ -154,6 +154,9 @@
     <ClInclude Include="waypoint.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="debugdraw.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="engine.cpp">
@@ -260,6 +263,9 @@
     </ClCompile>
     <ClCompile Include="waypoint.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="debugdraw.cpp">
+      <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
