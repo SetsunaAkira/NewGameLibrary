@@ -5,6 +5,7 @@
 
 void EnemyExplosion::Create(const Vector2D & postion)
 {
+	postion;
 	m_transform.position = Vector2D(400.0f, 300.0f);
 	m_transform.scale = Vector2D(2.0f, 2.0f);
 	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();

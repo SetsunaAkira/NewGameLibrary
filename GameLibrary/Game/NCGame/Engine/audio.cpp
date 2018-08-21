@@ -13,6 +13,7 @@ Audio::~Audio()
 void Audio::Load(const std::string& filename)
 {
 	FMOD::Sound* fmodsound = nullptr;
+	fmodsound;
 	FMOD_RESULT result = m_fmodSystem->createSound(filename.c_str(), FMOD_DEFAULT, 0, &m_sound);
 	assert(result == FMOD_OK);
 }

@@ -24,14 +24,12 @@ void AABBComponent::Update()
 	SpriteComponent* spriteComponent = m_sensei->GetComponent<SpriteComponent>();
 	if (spriteComponent)
 	{
-		size - size * spriteComponent->GetTexture()->GetSize();
+		size = size * spriteComponent->GetTexture()->GetSize();
 		position = position - (size * spriteComponent->GetOrigin());
 	}
 	m_aabb.Build(position, size * 0.5f);
 
 	DEBUG_DRAW_AABB(m_aabb,Color::red);
-
-
 }
 
 bool AABBComponent::Intersects(ICollisionComponent * other)

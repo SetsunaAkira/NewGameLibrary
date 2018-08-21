@@ -6,7 +6,7 @@
 class Ship : public Entity
 {
 public:
-	Ship(Scene* scene, const ID& id) : Entity(scene) {}
+	Ship(Scene* scene, const ID& id) : Entity(scene,id) {}
 	~Ship() {}
 
 	void Create(const Vector2D& position);

@@ -61,7 +61,7 @@ bool Game::Initalize()
 	{
 		Enemy* enemy = new Enemy(m_scene);
 		float x = Math::GetRandomRange(0.0f, 800.0f);
-		float y = Math::GetRandomRange(-30.0f, -300.0f);
+		float y = Math::GetRandomRange(30.0f, 300.0f);
 		enemy->Create(Vector2D(x, y));
 		m_scene->addEntity(enemy);
 	}

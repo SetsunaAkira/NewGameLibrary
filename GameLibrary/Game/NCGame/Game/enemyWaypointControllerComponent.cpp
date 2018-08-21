@@ -24,6 +24,7 @@ void EnemyWaypointControllerComponent::Destroy()
 {
 	for (Waypoint* waypoint : m_waypoints)
 	{
+		waypoint;
 		m_waypoint->SetState(Entity::DESTROY);
 	}
 }

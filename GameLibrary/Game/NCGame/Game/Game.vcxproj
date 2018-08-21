@@ -139,6 +139,7 @@
     <ClCompile Include="enemycontrollerComponent.cpp" />
     <ClCompile Include="enemyexplosion.cpp" />
     <ClCompile Include="enemymissile.cpp" />
+    <ClCompile Include="enemyTargetController.cpp" />
     <ClCompile Include="enemyWaypointControllerComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="enemycontrollerComponent.h" />
     <ClInclude Include="enemyexplosion.h" />
     <ClInclude Include="enemymissile.h" />
+    <ClInclude Include="enemyTargetController.h" />
     <ClInclude Include="enemyWaypointControllerComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="missile.h" />

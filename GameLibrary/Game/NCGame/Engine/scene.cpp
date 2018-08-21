@@ -19,6 +19,7 @@ bool Scene::Intialize()
 void Scene::Update()
 {
 	size_t size = m_entities.size();
+	size;
 	for (Entity* entity : m_entities)
 	{
 		entity->Update();

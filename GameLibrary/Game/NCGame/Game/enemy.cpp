@@ -8,6 +8,7 @@
 #include "audioSystem.h"
 #include "eventManager.h"
 #include "enemyexplosion.h"
+#include "enemyTargetController.h"
 
 void Enemy::Create(const Vector2D & position)
 {
@@ -21,9 +22,12 @@ void Enemy::Create(const Vector2D & position)
 	/*enemycontrollerComponent* controller = addComponent<enemycontrollerComponent>();
 	controller->Create(200.0f);*/
 
-	EnemyWaypointControllerComponent* controller = addComponent<EnemyWaypointControllerComponent>();
+	/*EnemyWaypointControllerComponent* controller = addComponent<EnemyWaypointControllerComponent>();
 	std::vector<Vector2D> points = { Vector2D(100.0f, 100.0f), Vector2D(300.0f,400.0f), Vector2D(96.0f, -400.0f) };
-	controller->Create(200.0f, points);
+	controller->Create(200.0f, points);*/
+
+	EnemyTargetController* controller = addComponent<EnemyTargetController>();
+	controller->Create(Vector2D(400.0f, 300.0f), 20.0f);
 
 
 	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();
