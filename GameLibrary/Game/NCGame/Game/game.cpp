@@ -35,7 +35,7 @@ bool Game::Initalize()
 	//spriteComponent->SetDepth(100);
 	//m_scene->AddEntity(entity);
 
-	Entity* explosion = new Entity(m_scene);
+	/*Entity* explosion = new Entity(m_scene);
 	explosion->GetTransform().position = Vector2D(400.0f, 300.0f);
 	explosion->GetTransform().scale = Vector2D(2.0f, 2.0f);
 	SpriteComponent* spriteComponent = explosion->addComponent<SpriteComponent>();
@@ -43,7 +43,7 @@ bool Game::Initalize()
 	AnimationComponent* animationComponent = explosion->addComponent<AnimationComponent>();
 	std::vector<std::string> textureNames = { "ship-explosion01.png", "ship-explosion02.png", "ship-explosion03.png", "ship-explosion04.png" };
 	animationComponent->Create(textureNames, 1.0f / 10.0f);
-	m_scene->addEntity(explosion);
+	m_scene->addEntity(explosion);*/
 
 	/*Entity* entity = new Entity(m_scene, "score");
 	entity->GetTransform().position = Vector2D(20.0f, 20.0f);
@@ -57,14 +57,14 @@ bool Game::Initalize()
 	ship->Create(Vector2D(400, 510));
 	m_scene->addEntity(ship);
 
-	for (size_t i = 0; i < 5; i++)
+	/*for (size_t i = 0; i < 5; i++)
 	{
 		Enemy* enemy = new Enemy(m_scene);
 		float x = Math::GetRandomRange(0.0f, 800.0f);
 		float y = Math::GetRandomRange(30.0f, 300.0f);
 		enemy->Create(Vector2D(x, y));
 		m_scene->addEntity(enemy);
-	}
+	}*/
 
 	m_running = success;
 

@@ -41,7 +41,7 @@ void GameState::Enter()
 	{
 		Enemy* enemy = new Enemy(m_sensei->GetScene());
 		float x = Math::GetRandomRange(0.0f, 800.0f);
-		float y = Math::GetRandomRange(-30.0f, -300.0f);
+		float y = Math::GetRandomRange(30.0f, 300.0f);
 		enemy->Create(Vector2D(x, y));
 		m_sensei->GetScene()->addEntity(enemy);
 	}

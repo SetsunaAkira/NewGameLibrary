@@ -25,10 +25,10 @@ void EnemyTargetController::Update()
 	float dt = Timer::Instance()->DeltaTimer();
 
 	Vector2D direction = m_target - m_sensei->GetTransform().position;
-	float rotation = (Vector2D::GetAngle(direction) * Math::RadiansToDegrees);
+	float rotation = (Vector2D::GetAngle(direction) * Math::RadiansToDegrees + 90.0f);
 	m_sensei->GetTransform().rotation = Math::Lerp(m_sensei->GetTransform().rotation, rotation, 5.0f * dt);
 
-	Vector2D force = Vector2D::Rotate(Vector2D::up, m_sensei->GetTransform().rotation * Math::DegreesToRadians);
+	Vector2D force = Vector2D::Rotate(Vector2D::up, m_sensei->GetTransform().rotation * Math::DegreesToRadians + Math::PI);
 
 	DEBUG_DRAW_LINE(m_sensei->GetTransform().position, m_sensei->GetTransform().position + force * 200.0f, Color::cyan);
 
