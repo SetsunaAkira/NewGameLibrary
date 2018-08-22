@@ -39,7 +39,7 @@ bool AABBComponent::Intersects(ICollisionComponent * other)
 	AABBComponent* aabbComponent = dynamic_cast<AABBComponent*>(other);
 	if (aabbComponent)
 	{
-		m_aabb.Intersects(aabbComponent->m_aabb);
+		intersects = m_aabb.Intersects(aabbComponent->m_aabb);
 	}
 
 

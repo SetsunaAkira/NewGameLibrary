@@ -178,11 +178,11 @@ Inputmanager::ebuttonState Inputmanager::GetButtonState(int id, eDevice device, 
 	ebuttonState state = ebuttonState::IDLE;
 
 	bool buttonDown = GetButtonDown(id, device, index);
-	bool prevbuttonDown = GetButtonDown(id, device, index);
+	bool prevbuttonDown = GetPreviousButtonDown(id, device, index);
 
 	if (buttonDown)
 	{
-		state = (prevbuttonDown) ? ebuttonState::PRESSED : ebuttonState::HELD;
+		state = (prevbuttonDown) ? ebuttonState::HELD : ebuttonState::PRESSED;
 	}
 	else
 	{

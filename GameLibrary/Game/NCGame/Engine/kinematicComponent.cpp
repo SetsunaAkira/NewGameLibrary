@@ -35,7 +35,7 @@ void kinematicComponent::Update()
 		m_velocity = m_velocity.Normalized() * m_velocityMax;
 	}
 
-	m_sensei->GetTransform().position = m_sensei->GetTransform().position + (m_velocity * dt);
+	m_sensei->GetTransform().position = m_sensei->GetTransform().position + m_velocity * dt;// (m_velocity * dt);
 
 
 	m_velocity = m_velocity * pow(m_dampening, dt);

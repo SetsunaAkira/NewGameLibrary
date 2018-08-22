@@ -38,7 +38,6 @@ bool Engine::Initialize()
 void Engine::Update()
 {
 	Timer::Instance()->Update();
-	Timer::Instance()->Update();
 	Inputmanager::Instance()->Update();
 	Audiosystem::Instance()->Update();
 	Physics::Instance()->Update();

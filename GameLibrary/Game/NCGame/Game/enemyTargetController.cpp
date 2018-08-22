@@ -26,7 +26,7 @@ void EnemyTargetController::Update()
 
 	Vector2D direction = m_target - m_sensei->GetTransform().position;
 	float rotation = (Vector2D::GetAngle(direction) * Math::RadiansToDegrees + 90.0f);
-	m_sensei->GetTransform().rotation = Math::Lerp(m_sensei->GetTransform().rotation, rotation, 5.0f * dt);
+	m_sensei->GetTransform().rotation = Math::LerpDegrees(m_sensei->GetTransform().rotation, rotation, 5.0f * dt);
 
 	Vector2D force = Vector2D::Rotate(Vector2D::up, m_sensei->GetTransform().rotation * Math::DegreesToRadians + Math::PI);
 
