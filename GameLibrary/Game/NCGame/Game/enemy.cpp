@@ -11,14 +11,21 @@
 #include "transformcontrollercomponent.h"
 #include "timer.h"
 #include "animationcomponent.h"
+#include <iostream>
 
-std::vector<Vector2D> Enemy::m_enterPath = 
-{ 
-	Vector2D(200.0f, 400.0f), 
-	Vector2D(300.0f, 300.0f), 
-	Vector2D(200.0f, 200.0f), 
-	Vector2D(100.0f, 300.0f), 
-	Vector2D(200.0f, 400.0f) 
+std::vector<Vector2D> Enemy::m_enterPath =
+{
+	Vector2D(200.0f, 400.0f),
+	Vector2D(300.0f, 300.0f),
+	Vector2D(200.0f, 200.0f),
+	Vector2D(100.0f, 300.0f),
+	Vector2D(200.0f, 400.0f),
+
+	Vector2D(300.0f, 400.0f),
+	Vector2D(450.0f, 400.0f),
+	Vector2D(250.0f, 200.0f),
+	Vector2D(350.0f, 100.0f),
+	Vector2D(50.0f, 250.0f)
 };
 
 void Enemy::Create(const Info& info)
@@ -82,7 +89,6 @@ void Enemy::OnEvent(const Event & event)
 			m_scene->addEntity<Explosion>();
 			Explosion *explosion = m_scene->addEntity<Explosion>();
 			explosion->Create(m_transform.position);
-
 			SetState(Entity::DESTROY);
 			Audiosystem::Instance()->PlaySound("explosion",false);
 		}

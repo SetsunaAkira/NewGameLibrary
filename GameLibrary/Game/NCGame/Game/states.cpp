@@ -44,11 +44,12 @@ void GameState::Enter()
 {
 	std::vector<Enemy::Info> formation = 
 	{
-		{Enemy::BEE,Enemy::LEFT, 300.0f, Vector2D(200.0f,100.0f)},
-	    {Enemy::BEE,Enemy::RIGHT, 300.0f, Vector2D(300.0f,100.0f)},
+		{Enemy::BEE,Enemy::RIGHT, 350.0f, Vector2D(200.0f,100.0f)},
+	    {Enemy::BEE,Enemy::LEFT, 350.0f, Vector2D(300.0f,100.0f)},
+		{Enemy::BEE,Enemy::RIGHT, 350.0f, Vector2D(50.0f,100.0f)},
 		{Enemy::BOSS,Enemy::LEFT, 300.0f, Vector2D(100.0f,100.0f)},
-		{Enemy::BEE,Enemy::RIGHT, 300.0f, Vector2D(50.0f,100.0f)},
 		{Enemy::BOSS,Enemy::RIGHT, 300.0f, Vector2D(250.0f,100.0f)},
+		{Enemy::BOSS,Enemy::LEFT, 300.0f, Vector2D(400.0f,100.0f) },
 	};
 
 	for (Enemy::Info info : formation)
