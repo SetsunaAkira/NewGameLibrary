@@ -42,14 +42,14 @@ void AnimationComponent::Update()
 				m_frame = 0;
 				break;
 			case ePlayback::ONE_TIME:
-				m_frame = (int)m_textures.size() - 1;
+				m_frame = m_textures.size() - 1.0f;
 				break;
 			case ePlayback::ONE_TIME_DESTROY:
-				m_frame = (int)m_textures.size() - 1;
+				m_frame = m_textures.size() - 1.0f;
 				m_sensei->SetState(Entity::DESTROY);
 				break;
 			case ePlayback::PING_PONG:
-				m_frame = Math::Clamp(m_frame, 0,m_textures.size() - 1);
+				m_frame = Math::Clamp((float)m_frame, 0, m_textures.size() - 1.0f);
 				m_direction = -m_direction;
 			}
 
@@ -65,5 +65,5 @@ void AnimationComponent::Update()
 
 Texture * AnimationComponent::GetTexture()
 {
-	return m_textures[m_frame];
+	return m_textures[(int)m_frame];
 }

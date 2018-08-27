@@ -139,9 +139,6 @@
     <ClInclude Include="engine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="components.h">
-      <Filter>Components</Filter>
-    </ClInclude>
     <ClInclude Include="audio.h">
       <Filter>Systems</Filter>
     </ClInclude>
@@ -156,6 +153,15 @@
     </ClInclude>
     <ClInclude Include="debugdraw.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="waypointcontrollercomponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="transformcontrollercomponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +272,12 @@
     </ClCompile>
     <ClCompile Include="debugdraw.cpp">
       <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="waypointcontrollercomponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="transformcontrollercomponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

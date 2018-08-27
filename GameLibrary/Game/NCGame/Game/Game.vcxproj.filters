@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Objects">
       <UniqueIdentifier>{8f742c67-31e5-4bf0-8804-e80250411671}</UniqueIdentifier>
     </Filter>
@@ -41,17 +37,11 @@
     <ClCompile Include="enemymissile.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="enemyexplosion.cpp">
+    <ClCompile Include="states.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="states.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="enemyWaypointControllerComponent.cpp">
-      <Filter>Components</Filter>
-    </ClCompile>
-    <ClCompile Include="enemyTargetController.cpp">
-      <Filter>Components</Filter>
+    <ClCompile Include="explosion.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,20 +63,14 @@
     <ClInclude Include="game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="enemyexplosion.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="enemymissile.h">
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="states.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="enemyWaypointControllerComponent.h">
-      <Filter>Components</Filter>
-    </ClInclude>
-    <ClInclude Include="enemyTargetController.h">
-      <Filter>Components</Filter>
+    <ClInclude Include="explosion.h">
+      <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

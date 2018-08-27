@@ -52,6 +52,20 @@ void Audiosystem::AddSound(const std::string & id, const std::string & audioname
 	}
 }
 
+void Audiosystem::AddSong(const std::string & id, const std::string & audioname)
+{
+	std::string filename = fileSystem::Instance()->getPathname() + audioname;
+	if (m_sounds.find(id) == m_sounds.end())
+	{
+		FMOD::Sound* fmodsound = nullptr;
+		FMOD_RESULT result = m_fmodSystem->createStream(filename.c_str(), FMOD_DEFAULT, 0, &fmodsound);
+		if (result == FMOD_OK)
+		{
+			m_sounds[id] = fmodsound;
+		}
+	}
+}
+
 void Audiosystem::PlaySound(const std::string & id, bool loop)
 {
 	assert(m_sounds.find(id) != m_sounds.end());

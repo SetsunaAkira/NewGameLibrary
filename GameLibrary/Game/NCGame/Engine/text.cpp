@@ -64,11 +64,16 @@ void Text::SetColor(const Color & color)
 
 void Text::CreateTexture()
 {
+	assert(m_font);
+
+	// destroy current texture if one exists
 	if (m_texture)
 	{
 		m_texture->Destroy();
 	}
-	SDL_Surface* surface = TTF_RenderText_Solid(m_font,m_text.c_str(),m_color);
+
+	// create text texture
+	SDL_Surface* surface = TTF_RenderText_Solid(m_font, m_text.c_str(), m_color);
 	assert(surface);
 	m_texture->CreateFromSurface(surface);
 	SDL_FreeSurface(surface);

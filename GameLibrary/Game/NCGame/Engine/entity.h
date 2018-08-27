@@ -1,6 +1,6 @@
 #pragma once
 #include "object.h"
-#include "components.h"
+#include "component.h"
 #include <vector>
 #include <assert.h>
 #include "scene.h"
@@ -32,7 +32,7 @@ public:
 	virtual void OnEvent(const Event& event);
 
 	template <typename T>
-	T* addComponent()
+	T* AddComponent()
 	{
 		T* component = new T(this);
 		assert(dynamic_cast<Component*>(component));

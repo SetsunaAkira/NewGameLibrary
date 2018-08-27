@@ -12,17 +12,17 @@ void Missile::Create(const ID& tag,const Vector2D & position, const Vector2D & d
 	m_transform.position = position;
 	m_transform.scale = Vector2D(2.0f, 2.0f);
 
-	kinematicComponent* kinematic = addComponent<kinematicComponent>();
+	kinematicComponent* kinematic = AddComponent<kinematicComponent>();
 	kinematic->Create(500.0f, 0.9f, false);
 	kinematic->ApplyForce(direction * speed, kinematicComponent::VELOCITY);
 
-	SpriteComponent* spriteComponent = addComponent<SpriteComponent>();
+	SpriteComponent* spriteComponent = AddComponent<SpriteComponent>();
 
 	if (tag == "playermissile")	spriteComponent->Create("missile01.png", Vector2D(0.5f, 0.5f));
 	else if (tag == "enemymissile")	spriteComponent->Create("missile02.png", Vector2D(0.5f, 0.5f));
 
-	AABBComponent* aabbComponent = addComponent<AABBComponent>();
-	aabbComponent->Create(Vector2D(0.7f, 0.9f));
+	AABBComponent* aabbComponent = AddComponent<AABBComponent>();
+	aabbComponent->Create(tag,Vector2D(0.7f, 0.9f));
 }
 
 

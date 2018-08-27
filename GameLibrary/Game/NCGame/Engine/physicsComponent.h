@@ -1,6 +1,6 @@
 #pragma once
 
-#include "components.h"
+#include "component.h"
 #include "vector2D.h"
 
 class ENGINE_API IPhysicsComponent : public Component

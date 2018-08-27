@@ -13,7 +13,7 @@ void ShipControllerComponent::Create(float speed)
 	Inputmanager::Instance()->AddAction("right", SDL_SCANCODE_RIGHT, Inputmanager::eDevice::KEYBOARD);
 	Inputmanager::Instance()->AddAction("fire", SDL_SCANCODE_SPACE, Inputmanager::eDevice::KEYBOARD);
 
-	Audiosystem::Instance()->AddSound("fire", "laser.wav");
+	Audiosystem::Instance()->AddSound("fire", "Oof.mp3");
 }
 
 void ShipControllerComponent::Destroy()
@@ -27,7 +27,6 @@ void ShipControllerComponent::Update()
 		(Inputmanager::Instance()->GetActionButton("left") == Inputmanager::ebuttonState::HELD))
 	{
 		force = force + Vector2D::left;
-		std::cout << "left" << std::endl;
 	}
 
 	if ((Inputmanager::Instance()->GetActionButton("right") == Inputmanager::ebuttonState::PRESSED) ||

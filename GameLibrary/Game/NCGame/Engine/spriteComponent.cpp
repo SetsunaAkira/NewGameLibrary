@@ -5,12 +5,12 @@
 #include <iostream>
 void SpriteComponent::Create(const std::string & textureName, const Vector2D& origin)
 {
+	m_origin = origin;
 	if (textureName != "")
 	{
 		m_texture = new Texture();
 		m_texture->Create(textureName);
 	}
-	m_origin = origin;
 }
 
 void SpriteComponent::Destroy()

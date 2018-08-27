@@ -1,6 +1,6 @@
 #pragma once
 
-#include "components.h"
+#include "component.h"
 
 class ENGINE_API IRenderComponent : public Component
 {

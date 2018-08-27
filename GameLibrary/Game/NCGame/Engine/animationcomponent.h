@@ -1,5 +1,5 @@
 #pragma once
-#include "components.h"
+#include "component.h"
 #include <vector>
 #include "engine.h"
 
@@ -28,7 +28,7 @@ protected:
 	ePlayback m_playback;
 	float m_rate = 0.0f;
 	float m_timer = 0.0f;
-	int m_frame = 0;
+	float m_frame = 0.0f;
 	int m_direction = 1;
 
 };

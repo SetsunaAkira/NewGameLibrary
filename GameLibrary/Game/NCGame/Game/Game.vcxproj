@@ -137,10 +137,8 @@
   <ItemGroup>
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="enemycontrollerComponent.cpp" />
-    <ClCompile Include="enemyexplosion.cpp" />
+    <ClCompile Include="explosion.cpp" />
     <ClCompile Include="enemymissile.cpp" />
-    <ClCompile Include="enemyTargetController.cpp" />
-    <ClCompile Include="enemyWaypointControllerComponent.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="missile.cpp" />
@@ -156,10 +154,8 @@
   <ItemGroup>
     <ClInclude Include="enemy.h" />
     <ClInclude Include="enemycontrollerComponent.h" />
-    <ClInclude Include="enemyexplosion.h" />
+    <ClInclude Include="explosion.h" />
     <ClInclude Include="enemymissile.h" />
-    <ClInclude Include="enemyTargetController.h" />
-    <ClInclude Include="enemyWaypointControllerComponent.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="missile.h" />
     <ClInclude Include="ship.h" />

@@ -1,5 +1,5 @@
 #pragma once
-#include "components.h"
+#include "component.h"
 
 class ENGINE_API IControllerComponent : public Component
 {

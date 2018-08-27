@@ -7,8 +7,8 @@ void Waypoint::Create(const Vector2D & position, const Vector2D & scale, Entity 
 	m_transform.position = position;
 	m_transform.scale = scale;
 
-	AABBComponent* aabbcomponent = addComponent<AABBComponent>();
-	aabbcomponent->Create(Vector2D::one);
+	AABBComponent* aabbcomponent = AddComponent<AABBComponent>();
+	aabbcomponent->Create("waypoint",Vector2D::one);
 }
 
 
