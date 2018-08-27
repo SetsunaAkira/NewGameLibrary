@@ -64,8 +64,6 @@ void Text::SetColor(const Color & color)
 
 void Text::CreateTexture()
 {
-	assert(m_font);
-
 	// destroy current texture if one exists
 	if (m_texture)
 	{

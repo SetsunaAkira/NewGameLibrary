@@ -13,7 +13,7 @@ void ShipControllerComponent::Create(float speed)
 	Inputmanager::Instance()->AddAction("right", SDL_SCANCODE_RIGHT, Inputmanager::eDevice::KEYBOARD);
 	Inputmanager::Instance()->AddAction("fire", SDL_SCANCODE_SPACE, Inputmanager::eDevice::KEYBOARD);
 
-	Audiosystem::Instance()->AddSound("fire", "Oof.mp3");
+	Audiosystem::Instance()->AddSound("fire", "laser.wav");
 }
 
 void ShipControllerComponent::Destroy()
@@ -44,11 +44,14 @@ void ShipControllerComponent::Update()
 	if (Inputmanager::Instance()->GetActionButton("fire") == Inputmanager::ebuttonState::PRESSED)
 	{
 		std::vector<Entity*> missiles = m_sensei->Getscene()->GetEntitiesWithTag("playermissile");
+		if (missiles.size() < 4)
+		{
 			Missile* missile = new Missile(m_sensei->Getscene());
 			missile->Create("playermissile", m_sensei->GetTransform().position, Vector2D::down, 2500.0f);
 			m_sensei->Getscene()->addEntity(missile);
 
 			Audiosystem::Instance()->PlaySound("fire", false);
+		}
 	}
 
 }

@@ -57,7 +57,7 @@ void GameState::Enter()
 		Enemy* enemy = m_sensei->GetScene()->addEntity<Enemy>();
 		enemy->Create(info);
 	}
-	Audiosystem::Instance()->AddSong("Blood Drain", "Blood Drain.mp3");
+	Audiosystem::Instance()->AddSong("Blood Drain", "Beat Eat Nest.mp3");
 	Audiosystem::Instance()->PlaySound("Blood Drain", true);
 }
 
