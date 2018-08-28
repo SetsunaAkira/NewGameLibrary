@@ -35,7 +35,7 @@ void Entity::OnEvent(const Event & event)
 	event;
 }
 
-void Entity::addComponent(Component * component)
+void Entity::AddComponent(Component * component)
 {
 	assert(component);
 	assert(std::find(m_components.begin(), m_components.end(), component) == m_components.end());

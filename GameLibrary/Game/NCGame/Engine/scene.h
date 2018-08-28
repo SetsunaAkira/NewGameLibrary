@@ -19,7 +19,7 @@ public:
 	void Draw();
 
 	template <typename T>
-	T* addEntity(const ID& id = ID())
+	T* AddEntity(const ID& id = ID())
 	{
 		T* entity = new T(this, id);
 		assert(dynamic_cast<Entity*>(entity));
@@ -28,7 +28,7 @@ public:
 		return entity;
 	}
 
-	void addEntity(Entity* entity);
+	void AddEntity(Entity* entity);
 	std::list<Entity*>::iterator removeEntity(Entity* entity, bool destroy = true);
 
 	Entity* GetEntityWithID(const ID& id);

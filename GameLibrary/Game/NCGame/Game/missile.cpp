@@ -34,6 +34,10 @@ void Missile::Update()
 	{
 		SetState(Entity::DESTROY);
 	}
+	if (m_transform.position.y < -30.0f)
+	{
+		SetState(Entity::DESTROY);
+	}
 }
 
 void Missile::OnEvent(const Event & event)

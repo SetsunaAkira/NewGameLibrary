@@ -48,7 +48,7 @@ void ShipControllerComponent::Update()
 		{
 			Missile* missile = new Missile(m_sensei->Getscene());
 			missile->Create("playermissile", m_sensei->GetTransform().position, Vector2D::down, 2500.0f);
-			m_sensei->Getscene()->addEntity(missile);
+			m_sensei->Getscene()->AddEntity(missile);
 
 			Audiosystem::Instance()->PlaySound("fire", false);
 		}

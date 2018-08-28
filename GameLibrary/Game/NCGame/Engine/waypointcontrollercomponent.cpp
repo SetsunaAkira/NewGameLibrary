@@ -4,20 +4,26 @@
 #include "waypoint.h"
 #include "debugdraw.h"
 
-void WaypointControllerComponent::Create(float speed, const std::vector<Vector2D>& points)
+void WaypointControllerComponent::Create(float speed, const std::vector<Vector2D>& points, float turnRate, bool setPositionAtStart)
 {
 	m_speed = speed;
+	m_turnRate = turnRate;
 	m_timer = Math::GetRandomRange(1.0f, 3.0f);
 
 	for (Vector2D point : points)
 	{
-		Waypoint* waypoint = m_sensei->Getscene()->addEntity<Waypoint>();
+		Waypoint* waypoint = m_sensei->Getscene()->AddEntity<Waypoint>();
 		waypoint->Create(point, Vector2D(30.0f, 30.0f), m_sensei);
 		m_waypoints.push_back(waypoint);
 	}
 
 	m_waypointIndex = 0;
 	m_waypoint = m_waypoints[m_waypointIndex];
+
+	if (setPositionAtStart)
+	{
+		m_sensei->GetTransform().position = m_waypoint->GetTransform().position;
+	}
 }
 
 void WaypointControllerComponent::Destroy()

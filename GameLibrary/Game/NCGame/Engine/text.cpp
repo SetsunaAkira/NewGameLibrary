@@ -2,6 +2,7 @@
 #include "renderer.h"
 #include "texture.h"
 #include "fileSystem.h"
+#include <assert.h>
 
 Text::Text()
 {
@@ -13,14 +14,15 @@ Text::~Text()
 	TTF_CloseFont(m_font);
 }
 
-void Text::Create(const std::string & text, const std::string & fontName, int size, const Color & color)
+void Text::Create(const std::string & text, const std::string & fontName, int fontSize, const Color & color)
 {
 	m_texture = new Texture();
 
 	m_text = text;
 	m_color = color;
+
 	std::string filename = fileSystem::Instance()->getPathname() + fontName;
-	m_font = TTF_OpenFont(fontName.c_str(), size);
+	m_font = TTF_OpenFont(filename.c_str(), fontSize);
 
 	CreateTexture();
 }
@@ -64,6 +66,8 @@ void Text::SetColor(const Color & color)
 
 void Text::CreateTexture()
 {
+	assert(m_font);
+
 	// destroy current texture if one exists
 	if (m_texture)
 	{

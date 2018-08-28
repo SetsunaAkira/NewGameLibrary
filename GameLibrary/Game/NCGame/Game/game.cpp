@@ -24,30 +24,20 @@ bool Game::Initalize()
 	m_statemachine = new StateMachine(m_scene);
 
 	m_statemachine->AddState("title", new TitleState(m_statemachine));
+	m_statemachine->AddState("enter_stage", new EnterStageState(m_statemachine));
 	m_statemachine->AddState("game", new GameState(m_statemachine));
 	m_statemachine->SetState("title");
 
-
-	//Entity* explosion = new Entity(m_scene);
-	//explosion->GetTransform().position = Vector2D(400.0f, 300.0f);
-	//explosion->GetTransform().scale = Vector2D(2.0f, 2.0f);
-	//SpriteComponent* spriteComponent = explosion->addComponent<SpriteComponent>();
-	//spriteComponent->Create("", Vector2D(0.5f, 0.5f));
-	//AnimationComponent* animationComponent = explosion->addComponent<AnimationComponent>();
-	//std::vector<std::string> textureNames = { "ship-explosion01.png", "ship-explosion02.png", "ship-explosion03.png", "ship-explosion04.png" };
-	//animationComponent->Create(textureNames, 1.0f / 10.0f);
-	//m_scene->addEntity(explosion);
-
-	/*Entity* entity = new Entity(m_scene, "score");
+	Entity* entity = new Entity(m_scene, "score");
 	entity->GetTransform().position = Vector2D(20.0f, 20.0f);
 	TextComponent* textComponent = entity->AddComponent<TextComponent>();
-	textComponent->Create("00000", "namco.ttf", 18, Color::white);
+	textComponent->Create("00000", "emulogic.ttf", 18, Color::white);
 	textComponent->SetDepth(100);
-	m_scene->addEntity(entity);*/
+	m_scene->AddEntity(entity);
 
 	Ship* ship = new Ship(m_scene, "player");
 	ship->Create(Vector2D(400, 510));
-	m_scene->addEntity(ship);
+	m_scene->AddEntity(ship);
 
 	m_running = success;
 

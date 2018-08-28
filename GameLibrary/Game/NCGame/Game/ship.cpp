@@ -5,6 +5,7 @@
 #include "renderer.h"
 #include "aabbComponent.h"
 #include <iostream>
+#include "animationcomponent.h"
 
 void Ship::Create(const Vector2D & position)
 {
@@ -40,6 +41,15 @@ void Ship::OnEvent(const Event & event)
 		if (event.sender->GetTag() == "enemy")
 		{
 			SetState(Entity::DESTROY);
+			Entity* explosion = new Entity(m_scene);
+			explosion->GetTransform().position = Vector2D(400.0f, 300.0f);
+			explosion->GetTransform().scale = Vector2D(2.0f, 2.0f);
+			SpriteComponent* spriteComponent = explosion->AddComponent<SpriteComponent>();
+			spriteComponent->Create("", Vector2D(0.5f, 0.5f));
+			AnimationComponent* animationComponent = explosion->AddComponent<AnimationComponent>();
+			std::vector<std::string> textureNames = { "ship-explosion01.png", "ship-explosion02.png", "ship-explosion03.png", "ship-explosion04.png" };
+			animationComponent->Create(textureNames, 1.0f / 10.0f);
+			m_scene->AddEntity(explosion);
 		}
 	}
 }

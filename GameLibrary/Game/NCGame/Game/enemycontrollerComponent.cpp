@@ -44,6 +44,6 @@ void enemycontrollerComponent::Update()
 
 		Missile* missile = new Missile(m_sensei->Getscene());
 		missile->Create("enemymissile", m_sensei->GetTransform().position, Vector2D::up, 800.0f);
-		m_sensei->Getscene()->addEntity(missile);
+		m_sensei->Getscene()->AddEntity(missile);
 	}
 }

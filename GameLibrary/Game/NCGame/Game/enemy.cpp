@@ -11,22 +11,9 @@
 #include "transformcontrollercomponent.h"
 #include "timer.h"
 #include "animationcomponent.h"
+#include "formation.h"
 #include <iostream>
-
-std::vector<Vector2D> Enemy::m_enterPath =
-{
-	Vector2D(200.0f, 400.0f),
-	Vector2D(300.0f, 300.0f),
-	Vector2D(200.0f, 200.0f),
-	Vector2D(100.0f, 300.0f),
-	Vector2D(200.0f, 400.0f),
-
-	Vector2D(300.0f, 400.0f),
-	Vector2D(450.0f, 400.0f),
-	Vector2D(250.0f, 200.0f),
-	Vector2D(350.0f, 100.0f),
-	Vector2D(50.0f, 250.0f)
-};
+#include "textComponent.h"
 
 void Enemy::Create(const Info& info)
 {
@@ -44,6 +31,7 @@ void Enemy::Create(const Info& info)
 	std::vector<std::string> animations;
 	if (m_info.type == BEE) animations = { "enemy02A.png", "enemy02B.png" };
 	if (m_info.type == BOSS) animations = { "enemy01A.png", "enemy01B.png" };
+	if (m_info.type == BUG) animations = { "enemy03A.png", "enemy03B.png" };
 	animationComponent->Create(animations, 1.0f / 4.0f);
 
 
@@ -81,15 +69,15 @@ void Enemy::OnEvent(const Event & event)
 {
 	if (event.EventID == "collision")
 	{
-		if (event.sender->GetTag() == "playermissle")
+		if (event.sender->GetTag() == "playermissile")
 		{
 			Event _event;
 			_event.EventID = "add_score";
 			EventManager::Instance()->SendGameMessage(_event);
-			m_scene->addEntity<Explosion>();
-			Explosion *explosion = m_scene->addEntity<Explosion>();
+			m_scene->AddEntity<Explosion>();
+			Explosion *explosion = m_scene->AddEntity<Explosion>();
 			explosion->Create(m_transform.position);
-			SetState(Entity::DESTROY);
+ 			SetState(Entity::DESTROY);
 			Audiosystem::Instance()->PlaySound("explosion",false);
 		}
 	}
@@ -97,8 +85,12 @@ void Enemy::OnEvent(const Event & event)
 
 void EnterPathState::Enter()
 {
+	
 	WaypointControllerComponent* waypointController = m_sensei->GetEntity()->AddComponent<WaypointControllerComponent>();
-	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, Enemy::m_enterPath);
+	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, m_sensei->GetEntity<Enemy>()->m_info.formation->GetEnterPath(m_sensei->GetEntity<Enemy>()->m_info.side), 5.0f, true);
+
+	Audiosystem::Instance()->AddSong("Beat Eat Nest", "Beat Eat Nest.mp3");
+	Audiosystem::Instance()->PlaySound("Beat Eat Nest", true);
 }
 void EnterPathState::Update()
 {
@@ -117,7 +109,9 @@ void EnterPathState::Exit()
 void EnterFormationState::Enter()
 {
 	WaypointControllerComponent* waypointController = m_sensei->GetEntity()->AddComponent<WaypointControllerComponent>();
-	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, std::vector<Vector2D> { m_sensei->GetEntity<Enemy>()->m_info.Target });
+	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, std::vector<Vector2D>{m_sensei->GetEntity<Enemy>()->m_info.Target }, 5.0f, false);
+
+	
 }
 void EnterFormationState::Update()
 {
@@ -147,7 +141,7 @@ void IdleState::Update()
 	m_timer = m_timer - dt;
 	if (m_timer <= 0.0f)
 	{
-		TransformControllerComponent* controller = m_sensei->GetEntity()->AddComponent<TransformControllerComponent>();
+		TransformControllerComponent* controller = m_sensei->GetEntity()->GetComponent<TransformControllerComponent>();
 		m_sensei->GetEntity()->removeComponent(controller);
 		m_sensei->SetState("attack");
 	}
@@ -160,7 +154,7 @@ void IdleState::Exit()
 void AttackState::Enter()
 {
 	WaypointControllerComponent* waypointController = m_sensei->GetEntity()->AddComponent<WaypointControllerComponent>();
-	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, Enemy::m_enterPath);
+	waypointController->Create(m_sensei->GetEntity<Enemy>()->m_info.speed, m_sensei->GetEntity<Enemy>()->m_info.formation->GetRandomAttackPath(),5.0f, false);
 }
 
 void AttackState::Update()

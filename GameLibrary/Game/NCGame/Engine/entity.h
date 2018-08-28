@@ -55,7 +55,7 @@ public:
 		return intersects;
 	}
 
-	void addComponent(Component* component);
+	void AddComponent(Component* component);
 	void removeComponent(Component* component);
 
 

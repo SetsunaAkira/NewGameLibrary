@@ -77,7 +77,7 @@ void Scene::Shutdown()
 	m_entities.clear();
 }
 
-void Scene::addEntity(Entity * entity)
+void Scene::AddEntity(Entity * entity)
 {
 	assert(std::find(m_entities.begin(), m_entities.end(), entity) == m_entities.end());
 	assert(entity);

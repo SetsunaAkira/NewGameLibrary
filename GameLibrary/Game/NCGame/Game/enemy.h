@@ -11,6 +11,7 @@ public:
 	{
 		BEE,
 		BOSS,
+		BUG
 	};
 
 	enum eSide
@@ -25,6 +26,7 @@ public:
 		eSide side;
 		float speed;
 		Vector2D Target;
+		class Formation* formation;
 	};
 
 public:
@@ -37,9 +39,6 @@ public:
 	void OnEvent(const Event& event);
 
 	static std::vector<Vector2D> m_enterPath;
-
-	/*float m_speed = 400.0f;
-	Vector2D m_targetPosition;*/
 
 	Info m_info;
 

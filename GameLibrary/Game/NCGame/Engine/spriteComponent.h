@@ -22,7 +22,7 @@ public:
 
 protected:
 	Vector2D m_origin;
-	Texture* m_texture;
+	Texture* m_texture = nullptr;
 	Vector2D m_uv1;
 	Vector2D m_uv2;
 };

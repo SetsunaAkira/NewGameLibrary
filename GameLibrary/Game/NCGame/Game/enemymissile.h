@@ -5,15 +5,14 @@
 class EnemyMissile : public Entity
 {
 public:
-	EnemyMissile(Scene* scene) : Entity(scene){}
-	~EnemyMissile(){}
+	EnemyMissile(Scene* scene) : Entity(scene) {}
+	~EnemyMissile() {}
 
-	void Create(const Vector2D &  position, const Vector2D &  direction, float speed);
+	void Create(const ID& tag, const Vector2D &  position, const Vector2D &  direction, float speed);
 	void Update();
-	void OnEvent(const Event& event);
 
+	void OnEvent(const Event& event);
 protected:
 	float m_lifetime;
-
 };
 

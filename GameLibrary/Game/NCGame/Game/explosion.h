@@ -4,6 +4,12 @@
 class Explosion : public Entity
 {
 public:
+	enum eType
+	{
+	ENEMY,
+	PLAYER
+	};
+public:
 	Explosion(Scene* scene, const ID id) : Entity(scene, id){}
 	~Explosion(){}
 
